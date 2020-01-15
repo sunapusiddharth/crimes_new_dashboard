@@ -5,15 +5,15 @@ services:
 # before_install:
 #     - docker build -t crimes-new-dashboard .
 after_success:
-    - docker build -t sunpausiddharth/crimes-new-dashboard/crimes-client ./crimes-client
-    - docker build -t sunpausiddharth/crimes-new-dashboard/backend ./backend
-    - docker build -t sunpausiddharth/crimes-new-dashboard/crime_data_explorer ./crime_data_explorer
-    - docker build -t sunpausiddharth/crimes-new-dashboard/nginx ./nginx
+    - docker build -t sunpausiddharth/crimes-new-dashboard-crimes-client ./crimes-client
+    - docker build -t sunpausiddharth/crimes-new-dashboard-backend ./backend
+    - docker build -t sunpausiddharth/crimes-new-dashboard-crime_data_explorer ./crime_data_explorer
+    - docker build -t sunpausiddharth/crimes-new-dashboard-nginx ./nginx
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-    - docker push sunpausiddharth/crimes-new-dashboard/crimes-client
-    - docker push sunpausiddharth/crimes-new-dashboard/backend
-    - docker push sunpausiddharth/crimes-new-dashboard/crime_data_explorer
-    - docker push sunpausiddharth/crimes-new-dashboard/nginx
+    - docker push sunpausiddharth/crimes-new-dashboard-crimes-client
+    - docker push sunpausiddharth/crimes-new-dashboard-backend
+    - docker push sunpausiddharth/crimes-new-dashboard-crime_data_explorer
+    - docker push sunpausiddharth/crimes-new-dashboard-nginx
 
 
 # deploy:
