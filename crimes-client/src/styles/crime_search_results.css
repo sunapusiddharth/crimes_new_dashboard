@@ -1,0 +1,36 @@
+.crime_search {
+    background-color:#343a40;
+}
+
+.crime_search img{
+    margin-top:12px;
+}
+
+.crime_search .excerpet{
+    padding-top: 11px;
+}
+
+.crime_people{
+    margin-bottom:8px;
+}
+.crime_search_page{
+    margin: 2%;
+}
+
+.crime_search_page .navbar{
+    background-color:black;
+    width: fit-content;
+}
+
+.crime_search_page .navbar-brand{
+    color:white !important;
+    /* font-size: xx-large; */
+}
+
+.crime_search_page section{
+    margin: 0px;
+}
+
+.crime_search_page  h3 a{
+    color:white !important;
+}

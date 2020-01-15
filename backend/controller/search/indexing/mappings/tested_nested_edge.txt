@@ -1,0 +1,27 @@
+//TRy nested with normal filed :
+{
+    "query": {
+        "bool": {
+            "should": [
+                {
+                    "nested": {
+                        "path": "education",
+                        "query": {
+                            "match": {
+                                "education.education_level": {
+                                    "query": "sie",
+                                    "analyzer": "autocomplete"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "match": {
+                        "title": "sid"
+                    }
+                }
+            ]
+        }
+    }
+}

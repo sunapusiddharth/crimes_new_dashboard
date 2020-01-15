@@ -1,0 +1,51 @@
+h1,h2,h3,h4,h5,h6 {font-family: "Oswald"}
+body {font-family: "Open Sans"}
+
+
+/* custom css */
+#home .w3-image
+{
+    max-height: 300px !important;
+}
+#home .w3-display-left{
+    max-height: 200px;
+}
+
+.carousel-indicators{
+    display: none !important;
+}
+
+.carousel-inner{
+    padding: 6px;   
+}
+
+
+/* .carousel-control-prev-icon,
+.carousel-control-next-icon {
+  height: 100px;
+  width: 100px;
+  outline: black;
+  background-size: 100%, 100%;
+  border-radius: 50%;
+  border: 1px solid black;
+  background-image: none;
+} */
+
+/* .carousel-control-next-icon:after
+{
+    content: '>';
+    font-weight: 500;
+    font-size: 70px;
+    color: red;
+} */
+
+/* .carousel-control-prev-icon:after {
+    content: '<';
+    font-weight: 500;
+    font-size: 70px;
+    color: red;
+} */
+
+.w3-bar .w3-bar-item a{
+    text-decoration: none
+}

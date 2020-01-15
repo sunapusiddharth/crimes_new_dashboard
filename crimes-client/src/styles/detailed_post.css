@@ -1,0 +1,11 @@
+.w3-row .row{
+    margin-top: 5px;
+}
+
+.error{
+    border: 2px solid red;
+}
+
+.comment_ul{
+    margin-left: 70px
+}

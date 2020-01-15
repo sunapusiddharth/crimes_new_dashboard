@@ -1,0 +1,17 @@
+{
+    "Customer": {
+        "dbConfig": {
+            "host": "localhost",
+            "port": 5984,
+            "dbName": "customers"
+        },
+        "credit": {
+            "initialLimit": 100,
+            "initialDays": 1
+        }
+    },
+    "CDE":{
+        "baseUrl":"https://api.usa.gov/crime/fbi/sapi",
+        "secret_key":"84ClEmn8prz1cCkI5vhSJzmx8PrDDkaFTX9zSryz"
+    }
+}

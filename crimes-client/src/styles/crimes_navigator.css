@@ -1,0 +1,18 @@
+.card_navigator .card{
+    height: 100% !important
+}
+
+.card_navigator .card-body{
+    background-color: #212121;
+}
+
+.card_navigator .card-body a{
+    color:white;
+}
+.card_navigator .card-footer .text-muted{
+    /* font-size: larger !important; */
+}
+
+.crimes_navigator_badge{
+    /* font-size: larger !important */
+}

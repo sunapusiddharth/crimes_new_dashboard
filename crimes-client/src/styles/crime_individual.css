@@ -1,0 +1,33 @@
+.ind_crime_description .badge{
+    font-size:x-laege
+}
+.ind_crime_description{
+    padding-left: 20px;
+    padding-top: 20px;
+    margin-right: 14px;
+    width: -webkit-fill-available;
+    background-color: #ffc107;
+}
+
+
+.single_crime_tabs{
+    margin-left: -16px;
+    background-color: black;
+    border:1px solid black;
+    
+
+}
+
+.single_crime_tabs .nav-link.active{
+    color:black;
+    
+}
+.single_crime_tabs .nav-link{
+    font-family: monospace;
+    color:white;
+    font-size: large;
+    display:initial !important;
+    margin-left:10px;
+    margin-right:10px;
+
+}

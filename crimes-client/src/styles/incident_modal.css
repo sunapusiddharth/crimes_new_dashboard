@@ -1,0 +1,8 @@
+.incident_modal .modal-content{
+    /* width: max-content; */
+}
+
+.crime_modal_tabs{
+    /* background-color: black; */
+    display: flex !important;
+}

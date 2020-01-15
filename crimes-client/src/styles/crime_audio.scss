@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
+
+
+:root {
+	// --opacity: 1;
+	--color: #faa700;
+	--color-light: #f5ede1;
+	// --color-rgba: rgba(250, 167, 0, var(--opacity));
+	--dark: #a7a7a7;
+	--dark: #8a8a8a;
+	--darker: #303030;
+	--sans-serif: 'Roboto', sans-serif;
+}
+
+@mixin flex($j:initial, $a:initial, $w:initial, $c:initial) {
+	display: flex;
+	flex-wrap: $w;
+	justify-content: $j;
+	align-items: $a;
+	align-content: $c;
+}
+.body_crime {
+	font-family: var(--sans-serif);
+	background: #0a1a24 !important;
+}
+
+
+.body_crime {
+	
+}
+.audio_background {
+	// position: absolute;
+	// width: 100%;
+	// top: 0;
+	// left: 0;
+	// z-index: -1;
+	width: 100%;
+  height: 35.25vw;
+  background: url(https://cdn.klove.com/images/music/artists/bios/SkilletUnleashed.KLArtist.jpg) center/cover;
+  box-shadow: inset 0px -17vw 20vw 1vw #0a1a24;
+//   position: absolute;
+  top: 0;
+  z-index: -1;
+	img {
+		max-width: 100%;
+		max-height:100vh;
+	box-shadow: inset 0px -17vw 30vw 1vw #131313 !important;
+	}
+	+ section {
+		margin-top: -42vmin;
+		// opacity: 0;
+		background: transparent !important;
+		--dark: rgba(white, .5) !important;
+		--dark: rgba(white, .6) !important;
+		--darker: rgba(white, .8) !important;
+		.bookmark {
+			border-color: rgba(white, .2) !important;
+			svg {
+				fill: #fff;
+			}
+		}
+		.album-tracks {
+			background: rgba(white, .1) !important ;
+			border: none;
+		}
+	}
+}
+
+
+
+section {
+	background: #fafafa !important;
+	margin: 100px 56px;
+	padding: 20px 56px;
+	color: var(--darker) !important;
+	color: rgba(white, .8) !important;
+	.album-info {
+		// Float problems solved
+		// overflow: auto;
+		// min-height: 280px;
+		// display: flex;
+		// align-items: flex-start
+		&:after { 
+		 content: " ";
+		 display: block; 
+		 height: 0; 
+		 clear: both;
+	}
+	}
+	.album-art {
+		// display: flex;
+		// justify-content: center;
+		// flex-wrap: wrap;
+		float: left;
+		width: 220px;
+		// flex: 0 0 220px;
+		margin-right: 20px;
+		margin-bottom: 20px;
+		
+		* {
+			border-radius: 3px;
+		}
+		img {
+			width: 100%;
+			margin-bottom: 10px;
+			// height: 220px;
+			margin-top:-80px;
+			box-shadow: 0 5px 60px -3px rgba(0, 0, 0, 0.18);
+		}
+	}
+	.play {
+		@include flex(center, center);
+		// display: flex;
+		// align-items: center;
+		// justify-content: center;
+		color: white;
+		background: var(--color);
+		padding: 10px;
+		text-transform: uppercase;
+		// flex: 1 1 70%;
+		flex: 1 0 50%;
+	}
+	.bookmark {
+		@include flex(center, center);
+		// display: flex;
+		// justify-content: center;
+		// align-items: center;
+		width: 48px;
+		height: 48px;
+		// background: black;
+		border: 3px solid var(--color-light);
+		margin-left: 10px;
+	}
+	.album-details {
+		> * {
+			padding: 10px 0;
+		}
+	}
+	h2 {
+		@include flex(initial, center);
+		color: var(--dark);
+		// display: flex;
+		// align-items: center;
+		font-size: 16px;
+		font-weight: 500;
+		text-transform: uppercase;
+		img {
+			width: 24px;
+			border-radius: 50%;
+			margin-right: 10px;
+		}
+	}
+	h1 {
+		font-size: 50px;
+		font-weight: 300;
+		word-wrap: break-word;
+		+ span {
+			color: var(--dark);
+			span:first-child {
+				padding-right: 20px;
+			}
+		}
+	}
+	p {
+		margin-top: 15px;
+	}
+	.album-tracks {
+		background: #f8f8f8 !important;
+		border: 1px solid #efefef !important;
+		margin-top: 20px;
+	}
+	@media(max-width: 800px) {
+		margin: 100px 36px 36px 36px;
+	}
+	@media(max-width: 700px) {
+		.album-art {
+			width: 100%;
+			img {
+				width: auto;
+				max-width: 100%;
+				margin: -100px auto 10px auto;
+				display: block;
+			}
+		}
+		.album-details {
+			// display: inline-block;
+			float: left;
+			max-width: 100%;
+		}
+	}
+	@media(max-width: 550px) {
+		margin: 100px 20px 20px 20px;
+		padding: 20px 16px;
+		ol {
+			padding: 16px;
+		}
+	}
+}
+
+ol {
+  list-style-type: none;
+	padding: 20px 36px;
+	font-weight: 500;
+	li {
+		counter-increment: number;
+		@include flex(space-between, center);
+		// display: flex;
+		// justify-content: space-between;
+		// align-items: center;
+		height:45px;
+		color: var(--dark);
+		span {
+			&:not(:last-child) {
+				margin-right: 2em;
+				@media(max-width: 700px) {
+					margin-right: 1em;
+				}
+			}
+			&:first-child {
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				overflow: hidden;
+				color: var(--darker);
+				&:before {
+					content: counter(number);
+					margin-right: 2em;
+					color: var(--dark);
+					display: inline-block;
+					text-align: end;
+					width: 20px;
+				}
+			}
+		}
+	}
+}
+
+.actions {
+	@include flex();
+	flex: 1 1 100%;
+}
+
+.audio_player{
+	width:-webkit-fill-available
+}

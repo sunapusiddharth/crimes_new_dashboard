@@ -1,0 +1,11 @@
+[type="checkbox"]:checked, [type="checkbox"]:not(:checked){
+    position: relative !important; 
+    left: 0px !important;
+    visibility: visible !important;
+    /* transform: scale(0); */
+    opacity: 1 !important;
+}
+.custom_image_css{
+    height: 100px;
+    widows: 200px;
+}

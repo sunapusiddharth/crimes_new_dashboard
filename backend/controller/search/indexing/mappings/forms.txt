@@ -1,0 +1,53 @@
+we use ingest attachment here :
+PUT _ingest/pipeline/attachment
+{
+  "description" : "Extract attachment information",
+  "processors" : [
+    {
+      "attachment" : {
+        "field" : "data",
+        "properties": [ "content","keywords", "title","form_url","department_name","department_id" ]
+      }
+    }
+  ]
+}
+
+
+
+
+
+to index : 
+PUT my_index/_doc/my_id?pipeline=attachment
+{
+  "data": "e1xydGYxXGFuc2kNCkxvcmVtIGlwc3VtIGRvbG9yIHNpdCBhbWV0DQpccGFyIH0="
+}
+
+
+
+
+searching 
+POST 
+	{
+	  "query": {
+	    "terms": {
+	      "attachment.content": ["fbi"]
+	    }
+	  },
+	  "highlight" : {
+	        "fields" : {
+	            "attachment.content" : {}
+	        }
+	    }
+	} 
+
+
+deleting all docs:
+POST http://localhost:9200/form_files/_delete_by_query
+{
+  "query": { 
+    "match_all": {}
+  }
+}
+
+
+

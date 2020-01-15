@@ -1,0 +1,142 @@
+{
+"address": "Tyler Tunnel,5010 Bernadine Landing,Schambergerport,Arkansas",
+"cases": [
+        {"case_name": "Murder case"},
+        {"case_name": "theft case"}
+],
+"country": "Bahrain",
+"departments": [
+    {
+        "name": "department 1",
+        "position": "sales manager"
+    }
+],
+"education": [
+    {
+        "school_name": "Kairali School"
+    },
+    {
+        "school_name": "Cambridge"
+    }
+],
+"email":"sidsunny@gmail.com",
+"employment": [
+    {
+        "company_name": "drg",
+        "employment_type": "permanent",
+        "title": "associate"
+    }
+],
+"is_accussed": 1,
+"is_law": 0,
+"is_suspect": 1,
+"is_witness": 0,
+"name": "siddharth sunapu",
+"prisons": [
+    {
+        "cell_holding": "C4",
+        "name": "prison1",
+        "supervisor_name": "sitaram"
+    },
+    {
+        "cell_holding": "A2",
+        "name": "prison2",
+        "supervisor_name": "riya"
+    }
+]
+}
+
+
+
+
+
+//post data :
+{
+    "address": "bangalore whitefield chansandra 417",
+    "cases": [],
+    "country": "India",
+    "departments": [],
+    "education": [
+        {
+            "school_name": "Kairali School"
+        },
+        {
+            "school_name": "BIT"
+        }
+    ],
+    "email": "karan@gmail.com",
+    "employment": [
+        {
+            "company_name": "siemens",
+            "employment_type": "permanent",
+            "title": "fresher"
+        }
+    ],
+    "is_accussed": false,
+    "is_law": false,
+    "is_suspect": false,
+    "is_witness": true,
+    "name": "karan",
+    "prisons": []
+}
+
+
+
+
+
+///_doc 1 
+{
+    "address": "Tyler Tunnel,5010 Bernadine Landing,Schambergerport,Arkansas",
+    "cases": [
+        {
+            "case_name": "Murder case"
+        },
+        {
+            "case_name": "theft case"
+        }
+    ],
+    "country": "Bahrain",
+    "departments": [
+        {
+            "name": "department 1",
+            "position": "sales manager"
+        }
+    ],
+    "education": [
+        {
+            "school_name": "Kairali School"
+        },
+        {
+            "school_name": "Cambridge"
+        }
+    ],
+    "email": "sidsunny@gmail.com",
+    "employment": [
+        {
+            "company_name": "drg",
+            "employment_type": "permanent",
+            "title": "associate"
+        }
+    ],
+    "is_accussed": true,
+    "is_law": false,
+    "is_suspect": true,
+    "is_witness": false,
+    "name": "siddharth sunapu",
+    "prisons": [
+        {
+            "cell_holding": "C4",
+            "name": "prison1",
+            "supervisor_name": "sitaram"
+        },
+        {
+            "cell_holding": "A2",
+            "name": "prison2",
+            "supervisor_name": "riya"
+        }
+    ]
+}
+
+
+
+

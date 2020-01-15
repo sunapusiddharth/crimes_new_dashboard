@@ -1,0 +1,107 @@
+/* Designer credit: https://dribbble.com/shots/1978243-Latest-News */
+
+body, html {
+    overflow-x: hidden;
+  }
+  
+  .app-header {
+    display:block;
+    padding: 30px;
+  }
+  
+  .app-title {
+    display:inline-block;
+    width: 100%;
+    margin: 80px 0 0 0;
+    float:left;
+    position:relative;
+    color:#fff;
+    
+    @media(min-width:768px) {
+      width: 20%;
+      margin: 280px 0 0 0;
+    }
+    
+    h1 {
+      font-size: 10px;
+      margin: 0;
+    }
+    
+    p {
+      font-weight: 200;
+      opacity: .5;
+    }
+    
+  }
+  
+  .app-title-content {
+    position:relative;
+    top:50%;
+    left: 50%;
+    width:100%;
+    text-align:center;
+    transform:translate(-50%, -50%);
+    
+    @media(min-width:768px) {
+      width:auto;
+      position:absolute;
+      text-align:left;
+    }
+  }
+  
+  .app-card-list {
+    display:inline-block;
+    width:100%;
+    float:right;
+    margin:0;
+    min-height: 75vh;
+    white-space: space break-all;;
+    overflow-x: scroll;
+    margin-top:-70px;
+    
+    &::-webkit-scrollbar { 
+      display: none; 
+    }
+    
+    @media(min-width:768px) {
+        width:80%;
+        // white-space:nowrap;
+        margin-top: 0;
+    }
+    
+    .dept-card {
+      margin: -34px 9px;
+      display: inline-block;
+      max-width: 306px;
+      
+      
+      .dept-card-body {
+        //   white-space: pre;
+          background-color: #fff;
+          
+          *{
+              padding:5px;
+              font-size: 9px;
+              word-wrap: break-word;
+          }
+      }
+      .date{
+          
+      }
+    }
+  }
+  
+  .designer-link {
+    display:inline-block;
+    padding-top:40px;
+  }
+
+
+  .card-header{
+    min-height:192px;
+
+  }
+
+  .recent-posts{
+    background-color: coral;
+  }

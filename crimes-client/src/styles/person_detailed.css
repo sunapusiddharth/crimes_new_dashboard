@@ -1,0 +1,13 @@
+.crime_summary_card{
+    height:fit-content !important;
+    margin: 16px !important
+}
+
+.crime_bio_card{
+    height:fit-content !important;
+    margin: 16px !important
+}
+
+.criminal_org_image{
+    width:auto !important
+}

@@ -1,0 +1,24 @@
+language: minimal
+sudo: required
+services:
+    - docker
+before_install:
+    - docker build -t crimes-client-final .
+deploy:
+    provider: elasticbeanstalk
+    region: ap-south-1
+    app: "crimes-cleint"
+    env: CrimesCleint-env
+    bucket_name: elasticbeanstalk-ap-south-1-327828610480
+    bucket_path: "crimes-cleint"
+    on:
+        branch: master
+    access_key_id: "$AWS_ACCESS_KEY"
+    secret_access_key:
+        secure: "$AWS_SECRET_KEY"
+
+        
+
+
+
+

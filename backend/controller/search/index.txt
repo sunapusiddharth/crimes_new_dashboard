@@ -1,0 +1,119 @@
+we will have two indexes :
+1.department - will store details of all the departments .
+2. people - will store detail of people .
+3. crimes - will store all data about crimes .
+
+
+
+
+Reference :
+filter :
+"must": {
+            "term": {
+                "speaker": "FALSTAFF"
+
+            }
+        }
+
+
+Query for multimatch with aggs and filter
+For UI : on selecting filter remove it from fields t query 
+remove the facets
+//Use a top-level filter and apply the filter only to the search results but not to the facets:
+{
+    "query" : {
+        "multi_match" : {
+            "query" : "this is a test",
+            "fields" : [ "subject^2", "message" ]
+        }
+    },
+    "filter" : {
+        "term" : { "username": "slimkicker" }
+    }
+} 
+
+
+else use this 
+
+    {
+        "query": {
+            "bool": {
+                "must": {
+                    "multi_match": {
+                        "query": "City",
+                        "fields": [
+                            
+                            "domain_name","organization","agency"
+                        ]
+                    }
+                },
+                "filter": [
+                {   "term": {
+                        "city.keyword": "Aberdeen"
+                    }
+                },
+                {
+                    "term": {
+                        "state.keyword": "WA"
+                    }	
+                }
+                ]
+            }
+        }
+    }
+
+
+
+
+
+    //query for finding depts :
+
+    {
+    "query": {
+        "bool": {
+            "must": {
+                "multi_match": {
+                    "query": "",
+                    "fields": [
+                        
+                        "domain_name","organization","agency"
+                    ]
+                }
+            },
+            "filter": [
+             {   "term": {
+                    "city.keyword": "Aberdeen"
+                }
+             },
+             {
+            	 "term": {
+                    "state.keyword": "WA"
+                }	
+             }
+            ]
+        }
+    },
+   "aggs":{
+   "cities":{
+     "terms":{
+       "field":"city.keyword",
+       "size":200
+     }
+   }
+ }
+}
+
+
+
+//nitail query to get aggs for filter + facets 
+
+
+
+
+
+
+for people:
+fields to be searced  
+country , cases , departments.name,departments.position , prisons.name,prisons.cell_holding, prisons.supervisor.name
+employment.title,employment.company_name, education.school_name , education.qualification_name , name , address
+

@@ -1,0 +1,13 @@
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+.w3-main .card-columns{
+    margin-right:24px !important;
+}
+
+@media (min-width: 576px){
+    .card-columns{
+        margin-right:24px !important;
+    }
+}
+.w3-sidebar{
+        position: sticky !important;
+}

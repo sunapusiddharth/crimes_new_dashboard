@@ -1,0 +1,15 @@
+FROM node
+# Create app directory
+WORKDIR /app
+# Install app dependencies
+COPY /package.json ./
+COPY /yarn.lock ./
+
+# RUN npm install -g yarn
+
+RUN yarn install --network-timeout 1000000 
+# Copy app source code
+COPY . .
+
+#Expose port and start applicationa
+CMD ["yarn", "start"]

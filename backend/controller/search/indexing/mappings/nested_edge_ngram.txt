@@ -1,0 +1,114 @@
+POST :
+{
+	"title":"karan",
+	"education":[
+		{"education_level":"kairali"},
+		{"education_level":"bit"},
+		{"education_level":"siemens"}
+		]
+}
+
+
+
+
+//working query for nested edge ngarm search :
+{
+	"query":{
+		"bool":{
+			"must":[
+			{
+				"bool":{
+					"should":[
+						{
+							"nested":{
+								"path":"education",
+								"query":{
+									"match":{
+										"education.education_level":{
+											"query":"sie",
+											"analyzer":"autocomplete"
+										}
+									}
+								}
+							}
+						}]
+				}
+			}	
+			]
+		}
+	}
+}
+
+
+
+
+
+
+//Mappings and settigns :
+{
+blurays: {
+aliases: { },
+mappings: {
+properties: {
+education: {
+type: "nested",
+properties: {
+education_level: {
+type: "text",
+analyzer: "autocomplete",
+search_analyzer: "autocomplete_search"
+}
+}
+},
+title: {
+type: "text",
+analyzer: "autocomplete",
+search_analyzer: "autocomplete_search"
+}
+}
+},
+settings: {
+index: {
+number_of_shards: "1",
+provided_name: "blurays",
+creation_date: "1565604154772",
+analysis: {
+analyzer: {
+autocomplete: {
+filter: [
+"lowercase"
+],
+tokenizer: "autocomplete"
+},
+autocomplete_search: {
+tokenizer: "lowercase"
+}
+},
+tokenizer: {
+autocomplete: {
+token_chars: [
+"letter"
+],
+min_gram: "2",
+type: "edge_ngram",
+max_gram: "10"
+}
+}
+},
+number_of_replicas: "1",
+uuid: "V9V6Mfo3SC6slSzF2jytsQ",
+version: {
+created: "7030099"
+}
+}
+}
+}
+}
+
+
+
+
+
+
+
+

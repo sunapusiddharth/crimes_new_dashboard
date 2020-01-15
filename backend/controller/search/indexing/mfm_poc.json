@@ -1,0 +1,97 @@
+{
+    "settings": {
+        "analysis": {
+            "analyzer": {
+                "autocomplete": {
+                    "tokenizer": "autocomplete",
+                    "filter": [
+                        "lowercase"
+                    ]
+                },
+                "autocomplete_search": {
+                    "tokenizer": "lowercase"
+                }
+            },
+            "tokenizer": {
+                "autocomplete": {
+                    "type": "edge_ngram",
+                    "min_gram": 2,
+                    "max_gram": 10,
+                    "token_chars": [
+                        "letter"
+                    ]
+                }
+            }
+        }
+    },
+    "mappings": {
+        "properties":{
+            "fileName":{
+                "type":"text",
+                "analyzer":"autocomplete",
+                "search_analyzer":"autocomplete_search"
+            },
+            "updatedBy":{
+                "type":"text",
+                "analyzer":"autocomplete",
+                "search_analyzer":"autocomplete_search"
+            },
+            "scheduleRunID":{
+                "type":"integer"
+            },
+            "createdDateTime":{
+                "type":"date"
+            },
+            "batchID":{
+                "type":"integer"
+            },
+            "totalInvalidRecordCount":{
+                "type":"integer"
+            },
+            "totalRecordCount":{
+                "type":"integer"
+            },
+            "updatedDateTime":{
+                "type":"date",
+                "format":"yyy-MM-dd"
+            },
+            "totalMembersEnrolledByOffering":{
+                "type":"integer"
+            },
+            "totalLoadedRecordCount":{
+                "type":"integer"
+            },
+            "totalCancelCount":{
+                "type":"integer"
+            },
+            "createdBy":{
+                "type":"text",
+                "analyzer":"autocomplete",
+                "search_analyzer":"autocomplete_search"
+            },
+            "fileStatus":{
+                "type":"text"
+            },
+            "totalMembersEnrolled":{
+                "type":"integer"
+            },
+            "interfaceId":{
+                "type":"integer"
+            },
+            "totalEnrolledAmount":{
+                "type":"integer"
+            },
+            "fileType":{
+                "type":"text",
+                "analyzer":"autocomplete",
+                "search_analyzer":"autocomplete_search"
+            },
+            "totalEnrolledAmountByOffering":{
+                "type":"integer"
+            },
+            "activeFlag":{
+                "type":"boolean"
+            }
+        }
+    }
+}

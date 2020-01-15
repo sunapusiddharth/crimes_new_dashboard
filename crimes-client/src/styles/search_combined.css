@@ -1,0 +1,177 @@
+.featured_resulut{
+    height: 315px;
+}
+
+.search_all.search-sec{
+    padding: none;
+    margin:4px !important;
+}
+ 
+
+.search_combined{
+    margin-left:8px;
+    margin-right:8px;
+}
+
+@media (min-width: 576px){
+    .search_combined .jumbotron {
+        padding: 5px
+    }
+}
+
+.search_combined .jumbotron {
+    min-height: fit-content !important
+}
+
+.search_combined .crimes_card img,
+.search_combined .news_card img,
+.search_combined .post_card img,
+.search_combined .vacancy_card img{
+    width: 164px;
+    height: 146px;
+}
+
+@media (min-width: 992px){
+    .search_all.search-sec{
+        position: inherit;
+    }
+}
+
+.search_combined .search_all_crimes,
+.search_combined .search_all_news,
+.search_combined .search_all_posts,
+.search_combined .search_all_vacancies,
+.search_combined .search_all_speeches,
+.search_combined .search_all_departments{
+   height: auto !important;
+   margin-left: 0px !important;
+   margin-right: 0px ;
+}
+
+.search_combined .search_all_news,
+.search_combined .search_all_vacancies,
+.search_combined .search_all_speeches{
+    /* width:initial */
+ }
+
+.search_combined .search_all_crimes .media,
+.search_combined .search_all_news .media,
+.search_combined .search_all_posts .media,
+.search_combined .search_all_vacancies .media,
+.search_combined .search_all_speeches .media{
+    margin-top: 2px;
+    margin-left: 0px;
+    margin-right: 3px;
+    box-shadow: none
+ }
+ .search_combined .search_all_crimes .media,
+ .search_combined .search_all_news .media,
+ .search_combined .search_all_posts .media{
+    /* height: 170px; */
+    padding: 0px;
+ }
+
+ .search_combined .search_all_vacancies .media,
+ .search_combined .search_all_speeches .media{
+    margin-left: 20px !important
+ }
+
+ .search_combined .search_all_crimes .media button,
+ .search_combined .search_all_news .media button,
+ .search_combined .search_all_posts .media button,
+ .search_combined .search_all_vacancies .media button,
+ .search_combined .search_all_speeches .media button{
+    margin-left: 6px;
+ }
+ 
+
+.search_combined .flex-container{
+    /* max-height: 800px; */
+    /* overflow-y:scroll */
+}
+
+.no_data_card{
+    min-width: 100%;
+}
+
+.search_combined .search_all_news .MuiFlatPagination-root,
+.search_combined .search_all_departments .MuiFlatPagination-root,
+.search_combined .search_all_vacancies .MuiFlatPagination-root,
+.search_combined .search_all_speeches .MuiFlatPagination-root{
+    margin:0px !important;
+}
+
+
+
+.search_combined .news_Card,
+.search_combined .vacancies_Card
+.search_combined .department_Card
+.search_combined .speech_Card{
+    margin:0px ;
+    height:fit-content !important;
+}
+
+.search_combined .news_Card .card-img-top,
+.search_combined .vacancies_Card .card-img-top,
+.search_combined .department_Card .card-img-top,
+.search_combined .speech_Card .card-img-top{
+    height: 180px;    
+}
+
+.search_combined .news_Card .card-title,
+.search_combined .vacancies_Card .card-title,
+.search_combined .department_Card .card-title,
+.search_combined .speech_Card .card-title{ 
+    font-size: medium
+}
+
+.search_combined .news_Card .card-text .full_content,
+.search_combined .vacancies_Card .card-text .full_content,
+.search_combined .department_Card .card-text .full_content,
+.search_combined .speech_Card .card-text .full_content{ 
+    font-size: small;
+    padding-left: 5px;
+    padding-right   : 5px;
+}
+
+.search_all_modal .modal-header{ 
+    background-color: #D81B60;
+    color: #E0E0E0;
+}
+
+.search_all_modal .modal-body{ 
+    background-color: #E0E0E0;
+
+}
+
+
+.search_combined .search_all_vacancies .media, .search_combined .search_all_speeches .media{
+    border-bottom: 1px solid grey;
+}
+
+.search_combined  #input_query{
+    /* font-size: x-large !important; */
+    color: black !important;
+    padding-left: 22px !important;
+    height: 47px;
+}
+
+.featured_resulut .carousel-caption{
+    right: 3% !important;
+    width: auto !important;
+    color:black;
+    top: 0px !important;
+    left: 36% !important;
+    padding: none !important
+}
+
+.featured_resulut img{
+    width: 33% !important;
+}
+
+.featured_result_carousel .carousel-control-next,.featured_result_carousel .carousel-control-prev{
+    background-color: black;
+    top:6px;
+    bottom:7px;
+    width:3%
+}

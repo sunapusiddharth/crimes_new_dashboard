@@ -1,0 +1,18 @@
+.summary{
+    margin-top:10%
+}
+
+.states_menu{
+    max-height:400px;
+    overflow-y: scroll
+}
+
+.data_collection_item{
+    list-style: none;
+}
+
+.cde_container{
+    margin-left: 27px;
+    margin-right: 10px;
+    margin-top: 10px
+}

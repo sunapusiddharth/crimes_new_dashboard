@@ -1,0 +1,57 @@
+html,body,h1,h2,h3,h4,h5 {font-family: "RobotoDraft", "Roboto", sans-serif}
+.w3-bar-block .w3-bar-item {padding: 16px}
+
+.mail_icons{
+    font-size: xx-small !important;
+    white-space: pre !important;
+    display: flex !important;
+}
+
+.mail_icons:hover{
+    background-color: lightslategray;
+    cursor: pointer;
+}
+.mail_icons.active{
+    background-color: lightcoral;
+    cursor: pointer;
+}
+
+.mail_icons i.fa{
+    
+    font-size: 14px !important;
+}
+
+.person{
+    padding: 0.01em 16px !important;
+    margin-left: 122px !important;
+    border-color: #616161!important;
+}
+
+.mail_body img{
+    width:100px; 
+}
+
+.mail_body{
+    margin-left: 120px  !important;
+}
+
+.mail_buttons{
+    height:50px;
+    padding:5px;
+    font-size: 10px;
+}
+
+.mail_buttons i{
+    top:0px;
+    font-size: 10px;
+}
+
+.mail_list_item{
+    font-size: smaller;
+    
+}
+
+.mail_list_item:hover{
+    background-color: lightgray;
+    cursor: pointer
+}

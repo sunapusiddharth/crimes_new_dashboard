@@ -1,0 +1,20 @@
+.form-inline{
+    width: -webkit-fill-available !important;
+    display: block !important;
+}
+
+@media (min-width: 576px){
+.form-inline .form-control {
+    display: inline-block;
+    width: inherit !important;
+    vertical-align: middle;
+}
+}
+
+.no_results_page_card{
+    margin-left: 0px !important
+}
+.no_results_page_card .card-title{
+    margin-top: 11px;
+    text-align: center;
+}

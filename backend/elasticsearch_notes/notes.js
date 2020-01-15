@@ -1,0 +1,21 @@
+"query":{
+    "filtered":{
+        "query":{
+            "multi_search":{
+                "fields":["title^10","body"],
+                "query":"python"
+            }
+        },
+        "filter":{
+            "range":{"creation_date":{"from":"2012-01-01"}}
+        }
+    }
+},
+"fields":["title","creation_date"],
+"highlight":{
+    "fields":{
+        "title":{"fragmentsize":50},
+        "body":{"fragment_size":50} 
+    }
+}
+}

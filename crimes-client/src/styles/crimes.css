@@ -1,0 +1,18 @@
+.all_crimes_paginated_media{
+    background-color: #212121;
+    color: white;
+    text-decoration: none;
+    font-size: larger;
+}
+
+.all_crimes_paginated_media{
+    padding-left: 8px;
+}
+
+.all_crimes_paginated_media .media-body p{
+    font-size: small;
+}
+
+.crimes_small p.text-center{
+    /* font-size: larger; */
+}

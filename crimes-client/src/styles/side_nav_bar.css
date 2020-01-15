@@ -1,0 +1,11 @@
+.link-icon{
+    margin-right: 7px;
+  }
+  
+  .linkEntry{
+    margin: 7px 10px 7px;
+  }
+  
+  .active{
+    background-color: rgba(0,0,0,0.03);
+  }

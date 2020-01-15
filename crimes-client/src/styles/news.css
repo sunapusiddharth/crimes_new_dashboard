@@ -1,0 +1,158 @@
+*{
+    text-decoration:none
+}
+
+.featured_image_news .col{
+    padding: 0px !important
+}
+
+.left_icon , .right_icon{
+    background-color: coral;
+    border: burlywood;
+}
+
+hr{
+    border: 3px solid green;
+    border-radius: 5px;
+}
+.card_navigator{
+    margin-left: 58px;
+    /* background-color: #212121; */
+    margin-right: 58px;
+}
+
+.jumbotron{
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 500px;
+}
+
+.row_header{
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.news_small img{
+    max-width: fit-content;
+}
+
+.news_tags .btn-toolbar .btn{
+    margin: 8px;
+    background-color: lightgrey
+}
+
+.most_popular img{
+    max-width: 141px;
+}
+
+
+.news_footer ul>li{
+    opacity: 1.0;
+}
+
+.news_footer ul:hover > li:not(:hover) {
+    opacity: 0.5;
+}
+
+
+
+/* News Timeline */
+.news_timeline ul.timeline {
+    list-style-type: none;
+    position: relative;
+}
+.news_timeline ul.timeline:before {
+    content: ' ';
+    background: #d4d9df;
+    display: inline-block;
+    position: absolute;
+    left: 29px;
+    width: 2px;
+    height: 100%;
+    z-index: 400;
+}
+.news_timeline ul.timeline > li {
+    margin: 20px 0;
+    padding-left: 20px;
+}
+.news_timeline ul.timeline > li:before {
+    content: ' ';
+    background: white;
+    display: inline-block;
+    position: absolute;
+    border-radius: 50%;
+    border: 3px solid #22c0e8;
+    left: 20px;
+    width: 20px;
+    height: 20px;
+    z-index: 400;
+}
+
+.news_footer{
+    background-color: black;
+    bottom: 0;
+  content: '';
+  display: block;
+  height: 50%;
+  left: 0;
+  /* position: absolute; */
+  right: 0;
+  /* transform: skewY(-1.5deg); */
+  transform-origin: 100%;
+  color: white;
+  font-size: 20px;
+  /* z-index: -1; */
+}
+
+.news_footer .col{
+    margin:25px;
+}
+
+
+.carousel-caption{
+    opacity: 0.9;
+    height: 10px;
+    width: max-content;
+    padding-bottom: 20px;
+}
+
+.card_navigator .card-deck .card{
+    height: min-content;
+}
+
+.categorised_news li{
+
+}
+
+.categorised_news{
+    /* min-width: fit-content */
+}
+.categorised_news_list{
+    margin: 8px;
+}
+
+.news_images_pagination{
+    width:30%;
+    height: 50%
+}
+
+.pagination_news_footer small{
+    padding-left: 10px
+}
+
+.pagination_news_footer span{
+    margin-left: 20px
+}
+
+.news_small h7{
+    font-weight: bolder;
+    margin-bottom: 5px;
+    border-bottom: 2px solid lightslategray;
+}
+
+.single_news_author_tag{
+    font-size: 17px;
+}
+
+/* Text over image */
