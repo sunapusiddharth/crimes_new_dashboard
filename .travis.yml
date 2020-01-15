@@ -5,24 +5,29 @@ services:
 before_install:
     - docker build -t crimes-new-dashboard .
 after_success:
-    - docker build -t cirmes-new-dashboard/crimes-client ./crimes-client
-    - docker build -t cirmes-new-dashboard/backend ./backend
-    - docker build -t cirmes-new-dashboard/crime_data_explorer ./crime_data_explorer
-    - docker build -t cirmes-new-dashboard/nginx ./nginx
+    - docker build -t crimes-new-dashboard/crimes-client ./crimes-client
+    - docker build -t crimes-new-dashboard/backend ./backend
+    - docker build -t crimes-new-dashboard/crime_data_explorer ./crime_data_explorer
+    - docker build -t crimes-new-dashboard/nginx ./nginx
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --passoword-stdin
+    - docker push crimes-new-dashboard/crimes-client
+    - docker push crimes-new-dashboard/backend
+    - docker push crimes-new-dashboard/crime_data_explorer
+    - docker push crimes-new-dashboard/nginx
 
 
-deploy:
-    provider: elasticbeanstalk
-    region: ap-south-1
-    app: "crimes-cleint"
-    env: CrimesCleint-env
-    bucket_name: elasticbeanstalk-ap-south-1-327828610480
-    bucket_path: "crimes-cleint"
-    on:
-        branch: master
-    access_key_id: "$AWS_ACCESS_KEY"
-    secret_access_key:
-        secure: "$AWS_SECRET_KEY"
+# deploy:
+#     provider: elasticbeanstalk
+#     region: ap-south-1
+#     app: "crimes-cleint"
+#     env: CrimesCleint-env
+#     bucket_name: elasticbeanstalk-ap-south-1-327828610480
+#     bucket_path: "crimes-cleint"
+#     on:
+#         branch: master
+#     access_key_id: "$AWS_ACCESS_KEY"
+#     secret_access_key:
+#         secure: "$AWS_SECRET_KEY"
 
         
 
