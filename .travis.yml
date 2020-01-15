@@ -2,8 +2,8 @@ language: generic
 sudo: required
 services:
     - docker
-before_install:
-    - docker build -t crimes-new-dashboard .
+# before_install:
+#     - docker build -t crimes-new-dashboard .
 after_success:
     - docker build -t crimes-new-dashboard/crimes-client ./crimes-client
     - docker build -t crimes-new-dashboard/backend ./backend
