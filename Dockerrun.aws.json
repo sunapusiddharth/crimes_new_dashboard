@@ -5,37 +5,43 @@
             "name":"crimes-client",
             "image":"sunpausiddharth/crimes-new-dashboard-copy-crimes-client",
             "hostname":"crimes-client",
-            "essential":"false"
+            "essential":"false",
+            "memory": 128
         },
         {
             "name":"backend",
             "image":"sunpausiddharth/crimes-new-dashboard-copy-backend",
             "hostname":"backend",
-            "essential":"false"
+            "essential":"false",
+            "memory": 128
         },
         {
             "name":"crime_data_explorer",
             "image":"sunpausiddharth/crimes-new-dashboard-copy-crime_data_explorer",
             "hostname":"crime_data_explorer",
-            "essential":"false"
+            "essential":"false",
+            "memory": 128
         },
         {
             "name":"elasticsearch",
             "image":"docker.elastic.co/elasticsearch/elasticsearch:7.5.1",
             "hostname":"elasticsearch",
-            "essential":"false"
+            "essential":"false",
+            "memory": 256
         },
         {
             "name":"redis",
             "image":"redis:latest",
             "hostname":"redis",
-            "essential":"false"
+            "essential":"false",
+            "memory": 128
         },
         {
             "name":"database",
             "image":"sunpausiddharth/crimes-new-dashboard-copy-database",
             "hostname":"database",
-            "essential":"false"
+            "essential":"false",
+            "memory": 256
         },
         {
             "name":"nginx",
@@ -48,7 +54,8 @@
                     "containerPort":80
                 }
             ],
-            "links":["crimes-client","backend","crime_data_explorer"]
+            "links":["crimes-client","backend","crime_data_explorer"],
+            "memory": 128
         }
     ]
 }

@@ -13,5 +13,5 @@ function getAll() {
 
 function getById(id) {
     const requestOptions = { method: 'GET', headers: authHeader() };
-    return fetch(`http://${process.env.REACT_APP_API_HOST}/users/${id}`, requestOptions).then(handleResponse);
+    return fetch(`http://${process.env.REACT_APP_API_HOST}:8004/api/users/${id}`, requestOptions).then(handleResponse);
 }
