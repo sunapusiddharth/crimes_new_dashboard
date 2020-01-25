@@ -3,25 +3,43 @@
     "ContainerDefinitions":[
         {
             "name":"crimes-client",
-            "image":"sunpausiddharth/crimes-new-dashboard-crimes-client",
+            "image":"sunpausiddharth/crimes-new-dashboard-copy-crimes-client",
             "hostname":"crimes-client",
             "essential":"false"
         },
         {
             "name":"backend",
-            "image":"sunpausiddharth/crimes-new-dashboard-backend",
+            "image":"sunpausiddharth/crimes-new-dashboard-copy-backend",
             "hostname":"backend",
             "essential":"false"
         },
         {
             "name":"crime_data_explorer",
-            "image":"sunpausiddharth/crimes-new-dashboard-crime_data_explorer",
+            "image":"sunpausiddharth/crimes-new-dashboard-copy-crime_data_explorer",
             "hostname":"crime_data_explorer",
             "essential":"false"
         },
         {
+            "name":"elasticsearch",
+            "image":"docker.elastic.co/elasticsearch/elasticsearch:7.5.1",
+            "hostname":"elasticsearch",
+            "essential":"false"
+        },
+        {
+            "name":"redis",
+            "image":"redis:latest",
+            "hostname":"redis",
+            "essential":"false"
+        },
+        {
+            "name":"database",
+            "image":"sunpausiddharth/crimes-new-dashboard-copy-database",
+            "hostname":"database",
+            "essential":"false"
+        },
+        {
             "name":"nginx",
-            "image":"sunpausiddharth/crimes-new-dashboard-nginx",
+            "image":"sunpausiddharth/crimes-new-dashboard-copy-nginx",
             "hostname":"nginx",
             "essential":"true",
             "portMappings":[
@@ -30,7 +48,7 @@
                     "containerPort":80
                 }
             ],
-            "inks":["cient","server"]
+            "links":["crimes-client","backend","crime_data_explorer"]
         }
     ]
 }

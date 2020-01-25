@@ -20,7 +20,7 @@ import MegaMenu from './common/MegaMenu';
 class App extends Component {
   constructor(props) {
     super(props);
-    console.log("from app constructor")
+    console.log("from app constructor env values",process.env)
 
     this.state = {
       currentUser: null,

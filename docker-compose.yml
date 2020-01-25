@@ -4,6 +4,13 @@ services:
         build:
             dockerfile: Dockerfile.dev # specify the directory of the Dockerfile
             context: ./crimes-client
+        environment:
+            - REACT_APP_BACKEND_HOST=192.168.99.100:8004
+            - REACT_APP_API_HOST=192.168.99.100
+            - REACT_APP_ES_HOST=192.168.99.100:9200
+        # depends_on: 
+            # - backend
+            # - crime_data_explorer
     
     nginx:
         build:
@@ -12,30 +19,111 @@ services:
         restart: always  
         ports:
             - 3050:80 #specify ports mapping
+        environment:
+            - REACT_APP_BACKEND_HOST=192.168.99.100:8004
+            - REACT_APP_API_HOST=192.168.99.100
+            - REACT_APP_ES_HOST=192.168.99.100:9200
         depends_on: 
             - crimes-client
-            - backend
-            - crime_data_explorer
+            # - backend
+            # - crime_data_explorer
+            # - elasticsearch
+        
         
  
     backend: # name of the second service
         build:
             dockerfile: Dockerfile.dev # specify the directory of the Dockerfile
             context: ./backend
+        depends_on: 
+            - redis
+            - elasticsearch
+            - database
         environment:
             - REDIS_HOST=redis
-            - REDIS_PORT=6379
+            - MONGODB_HOST=database
+            - REACT_APP_API_HOST=192.168.99.100
+            - MONGODB_PORT=27017
+            - ES_HOST=elasticsearch
+            - ES_PORT=9200
+        ports: 
+            - 8004:8004
+        links:  
+            - "elasticsearch:elasticsearch"
 
     crime_data_explorer: # name of the second service
         build:
             dockerfile: Dockerfile.dev # specify the directory of the Dockerfile
             context: ./crime_data_explorer
-
-    database: # name of the third service
-        image: mongo # specify image to build container from
-        ports:
-            - 27017:27017 # specify port forwarding
+        depends_on: 
+            - redis
+            - database
+            - elasticsearch
+        ports: 
+            - 8007:8007
+        environment:
+            - MONGODB_HOST=database
+            - MONGODB_PORT=27017
+            - ES_HOST=elasticsearch
+            - REACT_APP_API_HOST=192.168.99.100
+        links:  
+            - "elasticsearch:elasticsearch"
+    database:
+        build:
+            dockerfile: Dockerfile.dev # specify the directory of the Dockerfile
+            context: ./fiiles
+        ports: 
+            - 27017:27017
         restart: always
+    # database1: # name of the third service
+    #     hostname: mongo1
+    #     container_name: localmongo1
+    #     build:
+    #         dockerfile: Dockerfile.dev # specify the directory of the Dockerfile
+    #         context: ./fiiles
+    #     ports:
+    #         - 27017:27017
+    #     restart: always
+    #     depends_on: 
+    #         - database2
+    #         - database3
+    #     entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "rs0" ] 
+    
+    # database2: # name of the third service
+    #     hostname: mongo2
+    #     container_name: localmongo2
+    #     image: mongo
+    #     ports:
+    #         - 27018:27017
+    #     restart: always
+    #     entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "rs0" ] 
+    
+    # database3: # name of the third service
+    #     hostname: mongo3
+    #     container_name: localmongo3
+    #     image: mongo
+    #     ports:
+    #         - 27019:27017
+    #     restart: always
+    #     entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "rs0" ] 
+
+    # database:
+    #     image: mongo
+    #     ports: 
+    #         - 27017:27017
+    #     restart: always
     
     redis:
         image: "redis:latest"
+        ports: 
+            - 6379:6379
+        restart: always
+    elasticsearch:
+        image: "docker.elastic.co/elasticsearch/elasticsearch:7.5.1"
+        environment:
+            - bootstrap.memory_lock=true
+            - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+            - discovery.type=single-node
+        ports:  
+            - 9200:9200
+        restart: always
