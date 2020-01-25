@@ -6,7 +6,7 @@
             "image":"sunpausiddharth/crimes-new-dashboard-copy-crimes-client",
             "hostname":"crimes-client",
             "essential":"false",
-            "memory": 128
+            "memory": 200
         },
         {
             "name":"backend",
@@ -32,7 +32,7 @@
                     "containerPort":8007
                 }
             ],
-            "memory": 128
+            "memory": 70
         },
         {
             "name":"elasticsearch",
@@ -45,21 +45,21 @@
                     "containerPort":9200
                 }
             ],
-            "memory": 128
+            "memory": 180
         },
         {
             "name":"redis",
             "image":"redis:latest",
             "hostname":"redis",
             "essential":"false",
-            "memory": 128
+            "memory": 70
         },
         {
             "name":"database",
             "image":"mongo",
             "hostname":"database",
             "essential":"false",
-            "memory": 128
+            "memory": 160
         },
         {
             "name":"nginx",
@@ -73,7 +73,7 @@
                 }
             ],
             "links":["crimes-client","backend","crime_data_explorer"],
-            "memory": 128
+            "memory": 70
         }
     ]
 }
