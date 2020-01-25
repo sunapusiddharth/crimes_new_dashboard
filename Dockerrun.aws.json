@@ -24,7 +24,7 @@
         {
             "name":"crime_data_explorer",
             "image":"sunpausiddharth/crimes-new-dashboard-copy-crime_data_explorer",
-            "hostname":"crime_data_explorer",
+            "hostname":"crime-data-explorer",
             "essential":"false",
             "portMappings":[
                 {

@@ -51,7 +51,7 @@ services:
         links:  
             - "elasticsearch:elasticsearch"
 
-    crime_data_explorer: # name of the second service
+    crime-data-explorer: # name of the second service
         build:
             dockerfile: Dockerfile.dev # specify the directory of the Dockerfile
             context: ./crime_data_explorer
