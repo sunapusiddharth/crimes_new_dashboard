@@ -1,6 +1,6 @@
 {
     "AWSEBDockerrunVersion":2,
-    "ContainerDefinitions":[
+    "containerDefinitions":[
         {
             "name":"crimes-client",
             "image":"sunpausiddharth/crimes-new-dashboard-copy-crimes-client",
@@ -12,6 +12,12 @@
             "name":"backend",
             "image":"sunpausiddharth/crimes-new-dashboard-copy-backend",
             "hostname":"backend",
+            "portMappings":[
+                {
+                    "hostPort":8004,
+                    "containerPort":8004
+                }
+            ],
             "essential":"false",
             "memory": 128
         },
@@ -20,6 +26,12 @@
             "image":"sunpausiddharth/crimes-new-dashboard-copy-crime_data_explorer",
             "hostname":"crime_data_explorer",
             "essential":"false",
+            "portMappings":[
+                {
+                    "hostPort":8007,
+                    "containerPort":8007
+                }
+            ],
             "memory": 128
         },
         {
@@ -27,6 +39,12 @@
             "image":"docker.elastic.co/elasticsearch/elasticsearch:7.5.1",
             "hostname":"elasticsearch",
             "essential":"false",
+            "portMappings":[
+                {
+                    "hostPort":9200,
+                    "containerPort":9200
+                }
+            ],
             "memory": 256
         },
         {
