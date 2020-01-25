@@ -68,13 +68,13 @@ services:
             - REACT_APP_API_HOST=192.168.99.100
         links:  
             - "elasticsearch:elasticsearch"
-    database:
-        build:
-            dockerfile: Dockerfile.dev # specify the directory of the Dockerfile
-            context: ./fiiles
-        ports: 
-            - 27017:27017
-        restart: always
+    # database:
+    #     build:
+    #         dockerfile: Dockerfile.dev # specify the directory of the Dockerfile
+    #         context: ./fiiles
+    #     ports: 
+    #         - 27017:27017
+    #     restart: always
     # database1: # name of the third service
     #     hostname: mongo1
     #     container_name: localmongo1
@@ -107,11 +107,11 @@ services:
     #     restart: always
     #     entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "rs0" ] 
 
-    # database:
-    #     image: mongo
-    #     ports: 
-    #         - 27017:27017
-    #     restart: always
+    database:
+        image: mongo
+        ports: 
+            - 27017:27017
+        restart: always
     
     redis:
         image: "redis:latest"

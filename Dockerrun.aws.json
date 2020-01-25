@@ -56,7 +56,7 @@
         },
         {
             "name":"database",
-            "image":"sunpausiddharth/crimes-new-dashboard-copy-database",
+            "image":"mongo",
             "hostname":"database",
             "essential":"false",
             "memory": 128
