@@ -9,7 +9,7 @@ after_success:
     - docker build -t sunpausiddharth/crimes-new-dashboard-copy-backend ./backend
     - docker build -t sunpausiddharth/crimes-new-dashboard-copy-crime_data_explorer ./crime_data_explorer
     - docker build -t sunpausiddharth/crimes-new-dashboard-copy-nginx ./nginx
-    - docker build -t sunpausiddharth/crimes-new-dashboard-copy-database ./database
+    - docker build -t sunpausiddharth/crimes-new-dashboard-copy-database ./fiiles
     # - docker build -t sunpausiddharth/crimes-new-dashboard-copy-fiiles ./fiiles
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
     - docker push sunpausiddharth/crimes-new-dashboard-crimes-copy-client
