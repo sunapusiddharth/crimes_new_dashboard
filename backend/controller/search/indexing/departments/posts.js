@@ -55,7 +55,7 @@ async function departmentPostBulkIndex(client, req, res) {
                 }
             }
         }
-        let url = 'http://localhost:9200/department_posts'
+        let url = `http://${process.env.REACT_APP_API_HOST}:9200/department_posts`
         await fetch(url, {
             method: "PUT",
             body: JSON.stringify(mapping_with_analysis),

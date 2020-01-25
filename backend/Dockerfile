@@ -9,4 +9,4 @@ RUN npm install
 COPY . .    
 
 #Expose port and start applicationa
-CMD ["npm","run", "dev"]
+CMD ["npm","run", "start"]

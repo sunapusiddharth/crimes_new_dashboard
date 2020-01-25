@@ -2,10 +2,18 @@
 //functions :
 
 //setup and test elasticsearch connection :
+var hosts = [
+  'elasticsearch'
+]
 const elasticsearch = require('elasticsearch')
-//check elasticsearch :
+// const client = new elasticsearch.Client({
+//     hosts:         hosts, 
+//     log:          'error',
+//     keepAlive:    true,
+//     sniffOnStart: false,
+//   });
 const client = new elasticsearch.Client({
-    host: '127.0.0.1:9200',
+    host: `${process.env.REACT_APP_API_HOST}:9200`,
     log: 'error'
   });
   

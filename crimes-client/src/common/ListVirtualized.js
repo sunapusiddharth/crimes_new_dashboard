@@ -27,7 +27,7 @@ class ListVirtualized extends Component {
   }
 
   componentDidMount(){
-    fetch(`http://localhost:8004/api/forms/faker_data`).then(res=>res.json()).then(data=>{
+    fetch(`http://${process.env.REACT_APP_API_HOST}:8004/api/forms/faker_data`).then(res=>res.json()).then(data=>{
         this.setState({...list,list:this.state.list.concat(data)})
     }).catch(error=>console.log(error))
   }
@@ -37,7 +37,7 @@ class ListVirtualized extends Component {
   }
 
     loadMoreRows =({ startIndex, stopIndex }) =>{
-        fetch(`http://localhost:8004/api/forms/faker_data`).then(res=>res.json()).then(data=>{
+        fetch(`http://${process.env.REACT_APP_API_HOST}:8004/api/forms/faker_data`).then(res=>res.json()).then(data=>{
             this.setState({...list,list:this.state.list.concat(data)})
         }).catch(error=>console.log(error))
   }

@@ -15,7 +15,7 @@ var {from,size,search_query} = req.body
     }
   }
   console.log("body=",body)
-   fetch('http://localhost:9200/people/_search',{
+   fetch(`http://${process.env.REACT_APP_API_HOST}:9200/people/_search`,{
     method:"POST",
     body:JSON.stringify(body),
     headers:{
@@ -41,7 +41,7 @@ const autoCompletePeople = async (client, req, res) => {
       }
     }
     console.log("body=",body)
-     fetch('http://localhost:9200/people/_search',{
+     fetch(`http://${process.env.REACT_APP_API_HOST}:9200/people/_search`,{
       method:"POST",
       body:JSON.stringify(body),
       headers:{

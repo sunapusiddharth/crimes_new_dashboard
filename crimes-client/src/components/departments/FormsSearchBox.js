@@ -28,7 +28,7 @@ class FormsSearchBox extends Component {
     }
 
     getInfo = (query) => {
-        fetch('http://localhost:8004/api/search/forms/autocomplete', {
+        fetch(`http://${process.env.REACT_APP_API_HOST}:8004/api/search/forms/autocomplete`, {
             method: 'post',
             headers: {
                 "Content-type": 'application/json'

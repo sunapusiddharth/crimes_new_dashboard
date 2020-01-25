@@ -175,7 +175,7 @@ async function peopleBulkIndex(client, req, res) {
             }
         }
         
-        let url = 'http://localhost:9200/people'
+        let url = `http://${process.env.REACT_APP_API_HOST}:9200/people`
         await fetch(url,{
             method:"PUT",
             body:JSON.stringify(mapping_with_analysis),

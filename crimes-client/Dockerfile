@@ -7,7 +7,7 @@ COPY ./yarn.lock ./
 
 # RUN npm install -g yarn
 
-RUN yarn install 
+RUN yarn install --network-timeout 1000000 
 # Copy app source code
 COPY . .
 

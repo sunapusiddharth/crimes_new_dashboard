@@ -4,7 +4,8 @@ const myWinstonOptions = {
     transports: [consoleTransport]
 }
 const redis = require('redis');
-const client = redis.createClient();
+const client = redis.createClient(6379, 'redis')
+
 client.on('error', (err) => {
     console.log("Error " + err);
 });

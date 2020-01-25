@@ -48,7 +48,7 @@ const saveStates = (data) => ({
 export function fetchStates(crime_id) {
     return (dispatch) => {
         dispatch(loadStates());
-        let url = `http://localhost:8007/crime_data_explorer/api/lookup/states`;
+        let url = `http://${process.env.REACT_APP_API_HOST}:8007/api/lookup/states`;
         fetch(url, {
             method: 'GET',
             headers: {
@@ -200,7 +200,7 @@ function fetchCrimeRates(type) {
         dispatch(loadCrimeRates)
         let url = ''
         if (type == 'national') {
-            url = 'http://localhost:8007/crime_data_explorer/api/offense_tkm/crime_rates_national'
+            url = `http://${process.env.REACT_APP_API_HOST}:8007/api/offense_tkm/crime_rates_national`
         }
         fetch(url).then(res => res.json()).then(data => dispatch(saveCrimeRates(data)))
     }
@@ -232,7 +232,7 @@ const saveVictimsData = (data) => ({
 export function getVictimsData(type, offense_code, variable, start_year, end_year) {
     return dispatch => {
         dispatch(loadVictimsData)
-        let url = `http://localhost:8007/crime_data_explorer/api/victims/${type}/${offense_code}/${variable}?start_year=${start_year}&end_year=${end_year}`
+        let url = `http://${process.env.REACT_APP_API_HOST}:8007/api/victims/${type}/${offense_code}/${variable}?start_year=${start_year}&end_year=${end_year}`
         fetch(url).then(res => res.json()).then(data => {
             dispatch(saveVictimsData(data))
         }).catch(error => console.log(error))
@@ -253,7 +253,7 @@ const saveOffenderData = (data) => ({
 export function getOffenderData(type, offense_code, variable, start_year, end_year) {
     return dispatch => {
         dispatch(loadOffenderData)
-        let url = `http://localhost:8007/crime_data_explorer/api/offender_tkm/offender_data/${type}/${offense_code}/${variable}?start_year=${start_year}&end_year=${end_year}`
+        let url = `http://${process.env.REACT_APP_API_HOST}:8007/api/offender_tkm/offender_data/${type}/${offense_code}/${variable}?start_year=${start_year}&end_year=${end_year}`
         fetch(url).then(res => res.json()).then(data => {
             dispatch(saveOffenderData(data))
         }).catch(error => console.log(error))
@@ -276,7 +276,7 @@ const saveVicitmsRelationship = (data) => ({
 export function fetchVictimsRelationship(type, offense_code, start_year, end_year) {
     return dispatch => {
         dispatch(loadVicitmsRelationship)
-        let url = `http://localhost:8007/crime_data_explorer/api/victims/${type}/${offense_code}/relationship?start_year=${start_year}&end_year=${end_year}`
+        let url = `http://${process.env.REACT_APP_API_HOST}:8007/api/victims/${type}/${offense_code}/relationship?start_year=${start_year}&end_year=${end_year}`
         fetch(url).then(res => res.json()).then(data => {
             delete data[0]._id
             //data of form
@@ -306,11 +306,11 @@ export function fetchPropertyStolen(type, year, year_range) {
         let url
         dispatch(loadPropertyStolen)
         if (year_range) {
-            url = `http://localhost:8007/crime_data_explorer/api/supplemental/property_stolen/${type}?year_range=${year_range}`
+            url = `http://${process.env.REACT_APP_API_HOST}:8007/api/supplemental/property_stolen/${type}?year_range=${year_range}`
         } else if(year){
-            url = `http://localhost:8007/crime_data_explorer/api/supplemental/property_stolen/${type}?year=${year}`
+            url = `http://${process.env.REACT_APP_API_HOST}:8007/api/supplemental/property_stolen/${type}?year=${year}`
         }else{
-            url = `http://localhost:8007/crime_data_explorer/api/supplemental/property_stolen/${type}`
+            url = `http://${process.env.REACT_APP_API_HOST}:8007/api/supplemental/property_stolen/${type}`
         }
         fetch(url).then(res => res.json()).then(data => {
             var final_object = {}
@@ -352,11 +352,11 @@ export function fetchPropertyRecovered(type, year, year_range) {
         let url
         dispatch(loadPropertyRecovered)
         if (year_range) {
-            url = `http://localhost:8007/crime_data_explorer/api/supplemental/property_recovered/${type}?year_range=${year_range}`
+            url = `http://${process.env.REACT_APP_API_HOST}:8007/api/supplemental/property_recovered/${type}?year_range=${year_range}`
         } else if (year) {
-            url = `http://localhost:8007/crime_data_explorer/api/supplemental/property_recovered/${type}?year=${year}`
+            url = `http://${process.env.REACT_APP_API_HOST}:8007/api/supplemental/property_recovered/${type}?year=${year}`
         } else {
-            url = `http://localhost:8007/crime_data_explorer/api/supplemental/property_recovered/${type}`
+            url = `http://${process.env.REACT_APP_API_HOST}:8007/api/supplemental/property_recovered/${type}`
         }
         fetch(url).then(res => res.json()).then(data => {
             var final_object = {}
@@ -400,7 +400,7 @@ export function fetchArrestsNational(type, year) {
         let url
         dispatch(loadArrestsNational)
         year = year ? year : 2017
-        url = `http://localhost:8007/crime_data_explorer/api/arrests/national_summary?year=${year}`
+        url = `http://${process.env.REACT_APP_API_HOST}:8007/api/arrests/national_summary?year=${year}`
         fetch(url).then(res => res.json()).then(data => {
             dispatch(saveArrestsNational(data))
         }).catch(error => console.log(error))
@@ -424,7 +424,7 @@ export function fetchArrestsNationalDrug(type, year) {
         let url
         dispatch(loadArrestsNationalDrug)
         year = year ? year : 2017
-        url = `http://localhost:8007/crime_data_explorer/api/arrests/drug_summary?year=${year}`
+        url = `http://${process.env.REACT_APP_API_HOST}:8007/api/arrests/drug_summary?year=${year}`
         fetch(url).then(res => res.json()).then(data => {
             dispatch(saveArrestsNationalDrug(data))
         }).catch(error => console.log(error))
@@ -447,7 +447,7 @@ export function fetchArrestsNationalJuvenile(type, year) {
         let url
         dispatch(loadArrestsNationalJuvenile)
         year = year ? year : 2017
-        url = `http://localhost:8007/crime_data_explorer/api/arrests/juvenile_summary?year=${year}`
+        url = `http://${process.env.REACT_APP_API_HOST}:8007/api/arrests/juvenile_summary?year=${year}`
         fetch(url).then(res => res.json()).then(data => {
             dispatch(saveArrestsNationalJuvenile(data))
         }).catch(error => console.log(error))
@@ -471,7 +471,7 @@ export function fetchArrestsNationalAdult(type, year) {
         let url
         dispatch(loadArrestsNationalAdult)
         year = year ? year : 2017
-        url = `http://localhost:8007/crime_data_explorer/api/arrests/adults_summary?year=${year}`
+        url = `http://${process.env.REACT_APP_API_HOST}:8007/api/arrests/adults_summary?year=${year}`
         fetch(url).then(res => res.json()).then(data => {
             dispatch(saveArrestsNationalAdult(data))
         }).catch(error => console.log(error))
@@ -495,7 +495,7 @@ export function fetchPeBreakout(type, year) {
         let url
         dispatch(loadPeBreakout)
         year = year ? year : 2017
-        url = `http://localhost:8007/crime_data_explorer/api/police_employment/pe_breakout`
+        url = `http://${process.env.REACT_APP_API_HOST}:8007/api/police_employment/pe_breakout`
         fetch(url).then(res => res.json()).then(data => {
             dispatch(savePeBreakout(data))
         }).catch(error => console.log(error))
@@ -517,7 +517,7 @@ export function fetchPePer1000(type, year) {
         let url
         dispatch(loadPePer1000)
         year = year ? year : 2017
-        url = `http://localhost:8007/crime_data_explorer/api/police_employment/pe_per_1000`
+        url = `http://${process.env.REACT_APP_API_HOST}:8007/api/police_employment/pe_per_1000`
         fetch(url).then(res => res.json()).then(data => {
             dispatch(savePePer1000(data))
         }).catch(error => console.log(error))
@@ -542,7 +542,7 @@ export function fetchEstimatedCrimesHeatMap(type, year) {
         let url
         dispatch(loadEstimatedCrimesHeatMap)
         year = year ? year : 2017
-        url = `http://localhost:8007/crime_data_explorer/api/estimated_crimes/highmap`
+        url = `http://${process.env.REACT_APP_API_HOST}:8007/api/estimated_crimes/highmap`
         fetch(url).then(res => res.json()).then(data => {
             dispatch(saveEstimatedCrimesHeatMap(data))
         }).catch(error => console.log(error))

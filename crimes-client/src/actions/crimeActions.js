@@ -27,7 +27,7 @@ const saveCrime = (data) => ({
 export function fetchCrime(crime_id) {
     return (dispatch) => {
         dispatch(loadCrime());
-        let url = `http://localhost:8004/backend/api/crime/${crime_id}`;
+        let url = `http://${process.env.REACT_APP_API_HOST}:8004/api/crime/${crime_id}`;
         fetch(url, {
             method: 'GET',
             headers: {
@@ -57,7 +57,7 @@ const saveLatestCrime = (data) => ({
 export function fetchLatestCrime(crime_id) {
     return (dispatch) => {
         dispatch(loadLatesCrime());
-        let url = `http://localhost:8004/backend/api/crimes/latest_crimes`;
+        let url = `http://${process.env.REACT_APP_API_HOST}:8004/api/crimes/latest_crimes`;
         fetch(url, {
             method: 'GET',
             headers: {
@@ -87,7 +87,7 @@ const savePaginatedCrime = (data) => ({
 export function fetchPaginatedCrime(skip, limit) {
     return (dispatch) => {
         dispatch(loadPaginatedCrime());
-        let url = `http://localhost:8004/backend/api/crimes/crimes`;
+        let url = `http://${process.env.REACT_APP_API_HOST}:8004/api/crimes/crimes`;
         fetch(url, {
             method: 'POST',
             headers: {
@@ -176,7 +176,7 @@ export function fetchCrimeSearch(search_query, from, size, clear_results) {
             }
         }
         search_query = search_query ? search_query:""
-        let url = 'http://localhost:8004/backend/api/search/crimes'
+        let url = `http://${process.env.REACT_APP_API_HOST}:8004/api/search/crimes`
         fetch(url, {
             method: 'POST',
             headers: {
@@ -218,7 +218,7 @@ export function fetchNearbyCrimes(skip, limit) {
         let lat = currently_loaded_crime && currently_loaded_crime.loc && currently_loaded_crime.loc.coordinates && currently_loaded_crime.loc.coordinates[0]
         let lon = currently_loaded_crime && currently_loaded_crime.loc && currently_loaded_crime.loc.coordinates && currently_loaded_crime.loc.coordinates[1]
         dispatch(loadNearbyCrimes())
-        let url = 'http://localhost:8004/backend/api/crime/nearby_crimes'
+        let url = `http://${process.env.REACT_APP_API_HOST}:8004/api/crime/nearby_crimes`
         fetch(url, {
             method: 'POST',
             headers: {

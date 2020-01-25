@@ -13,9 +13,9 @@ export class Dashboard extends Component {
         super();
         this.state = {
             response: 0,
-            cde_endpoint: "http://localhost:8007",
+            cde_endpoint: `http://${process.env.REACT_APP_API_HOST}:8007`,
             cde_socket:null,
-            backend_endpoint: "http://localhost:8004",
+            backend_endpoint: `http://${process.env.REACT_APP_API_HOST}:8004`,
             backend_socket:null
         };
     }

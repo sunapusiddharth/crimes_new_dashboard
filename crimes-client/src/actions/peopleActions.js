@@ -17,7 +17,7 @@ const savePeople = (data,skip) => ({
 export function fetchPeople(skip,limit) {
     return dispatch => {
       dispatch(loadPeople());
-      let url = 'http://localhost:8004/backend/api/people'
+      let url = `http://${process.env.REACT_APP_API_HOST}:8004/api/people`
       fetch(url, {
         method: 'POST',
         headers: {
@@ -52,7 +52,7 @@ const savePerson = (data) => ({
 export function fetchPerson(person_id) {
     return (dispatch) => {
         dispatch(loadPerson());
-        let url = `http://localhost:8004/backend/api/people/${person_id}`;
+        let url = `http://${process.env.REACT_APP_API_HOST}:8004/api/people/${person_id}`;
         fetch(url)
             .then(response => response.json())
             .then(data => {

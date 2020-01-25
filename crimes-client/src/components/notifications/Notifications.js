@@ -7,7 +7,7 @@ import socketIOClient from "socket.io-client";
         super();
         this.state = {
             response: 0,
-            endpoint: "http://localhost:8007"
+            endpoint: `http://${process.env.REACT_APP_API_HOST}:8007`
         };
     }
 

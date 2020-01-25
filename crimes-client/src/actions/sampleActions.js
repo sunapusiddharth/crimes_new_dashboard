@@ -35,7 +35,7 @@ export function createTableHeaders(data){
 export function fetchAnnualBalanceSheet(){
   return dispatch=>{
     dispatch(RequestAnnualBalanceSheet());
-    let url = 'http://localhost:5000/api/balance_sheets/get_annual_balance_sheet';
+    let url = 'http5000/api/balance_sheets/get_annual_balance_sheet';
     fetch(url,{
       method:'GET'
     })
@@ -63,7 +63,7 @@ export function saveMonthlyBalanceSheet(balance_sheet){
 export function fetchMonthlyBalanceSheet(){
   return dispatch=>{
     dispatch(RequestMonthlyBalanceSheet());
-    let url = 'http://localhost:5000/api/balance_sheets/get_building_consent_by_institutioanl_control_monthly';
+    let url = 'http5000/api/balance_sheets/get_building_consent_by_institutioanl_control_monthly';
     fetch(url,{
       method:'GET'
     })
@@ -98,7 +98,7 @@ export function saveSectorBalanceSheet (balance_sheet){
 export function fetchSectorBalanceSheet(){
   return dispatch=>{
     dispatch(RequestSectorBalanceSheet());
-    let url = 'http://localhost:5000/api/balance_sheets/get_building_consent_by_institutioanl_sector_monthly';
+    let url = 'http5000/api/balance_sheets/get_building_consent_by_institutioanl_sector_monthly';
     fetch(url,{
       method:'GET'
     })
@@ -114,11 +114,11 @@ export function saveBalanceSheets(data,tableType){
   return dispatch=>{
     // dispatch(request_table_data_saving());
     if(tableType == "annual"){
-      url = 'http://localhost:5000/api/balance_sheets/save_annual_data';
+      url = 'http5000/api/balance_sheets/save_annual_data';
     }else if(tableType == "monthly"){
-      url = 'http://localhost:5000/api/balance_sheets/save_monthly_data';
+      url = 'http5000/api/balance_sheets/save_monthly_data';
     }else if(tableType == 'sector'){
-      url = 'http://localhost:5000/api/balance_sheets/save_sector_data';
+      url = 'http5000/api/balance_sheets/save_sector_data';
     }
 
     fetch(url,{

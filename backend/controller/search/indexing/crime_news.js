@@ -60,7 +60,7 @@ async function crimeNewsBulkIndex(client, req, res) {
                 }
             }
         }
-        let url = 'http://localhost:9200/crime_news'
+        let url = `http://${process.env.REACT_APP_API_HOST}:9200/crime_news`
         await fetch(url, {
             method: "PUT",
             body: JSON.stringify(mapping_with_analysis),

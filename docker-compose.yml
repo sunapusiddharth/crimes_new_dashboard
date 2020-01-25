@@ -1,25 +1,9 @@
-version: '3.0' # specify docker-compose version
- 
-# Define the services/ containers to be run
+version: '3.0'
 services:
     crimes-client:
         build:
             dockerfile: Dockerfile.dev # specify the directory of the Dockerfile
             context: ./crimes-client
-        # restart: always  
-        # ports:
-        #     - 80:3000 #specify ports mapping
-        volumes: 
-            - /app/node_modules
-            - ./crimes-client:/app
-        depends_on: 
-            - backend
-            - crime_data_explorer
-        # command: nodemon -L src/server.js
-        # links:
-        #     - database # link this service to the database service
-        # expose: 
-        #     - 8004
     
     nginx:
         build:
@@ -28,63 +12,24 @@ services:
         restart: always  
         ports:
             - 3050:80 #specify ports mapping
-        volumes: 
-            - /app/node_modules
-            - ./crimes-client:/app
-        # command: nodemon -L src/server.js
-        # links:
-        #     - database # link this service to the database service
-        # expose: 
-        #     - 8004
+        depends_on: 
+            - crimes-client
+            - backend
+            - crime_data_explorer
         
  
     backend: # name of the second service
         build:
             dockerfile: Dockerfile.dev # specify the directory of the Dockerfile
             context: ./backend
-        # restart: always  
-        # ports:
-        #     - 8004:8004 #specify ports mapping
         environment:
-            - MONGO_URI=mongodb://db:27017/db
-            - PORT=4000
-            - JWT_SECRET=secretsecret
-            - JWT_EXPIRY=30d
-            - DEBUG=worker:*
-            - MORGAN=combined
-            - NODE_ENV=development
-        volumes: 
-            - /app/node_modules
-            - ./server:/app
-        # command: nodemon -L src/server.js
-        links:
-            - database # link this service to the database service
-        # expose: 
-        #     - 8004
+            - REDIS_HOST=redis
+            - REDIS_PORT=6379
 
     crime_data_explorer: # name of the second service
         build:
             dockerfile: Dockerfile.dev # specify the directory of the Dockerfile
             context: ./crime_data_explorer
-        # restart: always  
-        # ports:
-        #     - 8004:8004 #specify ports mapping
-        environment:
-            - MONGO_URI=mongodb://db:27017/db
-            - PORT=4000
-            - JWT_SECRET=secretsecret
-            - JWT_EXPIRY=30d
-            - DEBUG=worker:*
-            - MORGAN=combined
-            - NODE_ENV=development
-        volumes: 
-            - /app/node_modules
-            - ./crime_data_explorer:/app
-        # command: nodemon -L src/server.js
-        links:
-            - database # link this service to the database service
-        # expose: 
-        #     - 8007
 
     database: # name of the third service
         image: mongo # specify image to build container from
@@ -93,11 +38,4 @@ services:
         restart: always
     
     redis:
-        container_name: redis
-        image: redis
-        ports:
-            - "6379:6379"
-        volumes:
-            - ../data/redis:/data
-        entrypoint: redis-server --appendonly yes
-        restart: always
+        image: "redis:latest"

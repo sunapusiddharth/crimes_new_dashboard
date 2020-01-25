@@ -17,7 +17,7 @@ var {from,size,search_query} = req.body
     }
   }
   console.log("body=",body)
-   fetch('http://localhost:9200/department_posts/_search',{
+   fetch(`http://${process.env.REACT_APP_API_HOST}:9200/department_posts/_search`,{
     method:"POST",
     body:JSON.stringify(body),
     headers:{
@@ -40,7 +40,7 @@ const autocompleteDepartments = async (client, req, res) => {
       }
     }
     console.log("body=",body)
-     fetch('http://localhost:9200/department_posts/_search',{
+     fetch(`http://${process.env.REACT_APP_API_HOST}:9200/department_posts/_search`,{
       method:"POST",
       body:JSON.stringify(body),
       headers:{
@@ -66,7 +66,7 @@ const autocompleteDepartments = async (client, req, res) => {
         }
       }
       console.log("body=",body)
-       fetch('http://localhost:9200/department_speeches/_search',{
+       fetch(`http://${process.env.REACT_APP_API_HOST}:9200/department_speeches/_search`,{
         method:"POST",
         body:JSON.stringify(body),
         headers:{
@@ -89,7 +89,7 @@ const autocompleteDepartments = async (client, req, res) => {
           }
         }
         console.log("body=",body)
-         fetch('http://localhost:9200/department_speeches/_search',{
+         fetch(`http://${process.env.REACT_APP_API_HOST}:9200/department_speeches/_search`,{
           method:"POST",
           body:JSON.stringify(body),
           headers:{
@@ -115,7 +115,7 @@ const autocompleteDepartments = async (client, req, res) => {
         }
       }
       console.log("body=",body)
-       fetch('http://localhost:9200/department_vacancies/_search',{
+       fetch(`http://${process.env.REACT_APP_API_HOST}:9200/department_vacancies/_search`,{
         method:"POST",
         body:JSON.stringify(body),
         headers:{

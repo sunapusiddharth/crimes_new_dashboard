@@ -5,7 +5,8 @@ const myWinstonOptions = {
     transports: [consoleTransport]
 }
 const redis = require('redis');
-const client = redis.createClient();
+const client = redis.createClient(6379, 'redis')
+
 client.on('error', (err) => {
     console.log("Error " + err);
 });
@@ -66,7 +67,7 @@ async function sendMailUsingNodeMailer(req, res) {
 
         // create reusable transporter object using the default SMTP transport
         let transporter = nodemailer.createTransport({
-            host: 'localhost',
+            host: process.env.REACT_APP_API_HOST,
             port: 8009,
             secure: false, // true for 465, false for other ports
             auth: {

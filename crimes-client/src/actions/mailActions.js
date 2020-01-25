@@ -22,7 +22,7 @@ const saveInbox = (data)=>({
 export function fetchInbox(filters){
   return dispatch=>{
     dispatch(requestMail());
-    let url = 'http://localhost:8004/backend/api/crime/dashboard_table';
+    let url = `http://${process.env.REACT_APP_API_HOST}:8004/api/crime/dashboard_table`
     fetch(url,{
       method:'POST',
       headers: {
@@ -49,7 +49,7 @@ export function addMail(mail){
     debugger;
     return dispatch=>{
       dispatch(requestMail());
-      let url = 'http://localhost:8006/api/mail/inbox/add';
+      let url = `http://${process.env.REACT_APP_API_HOST}:8006/api/mail/inbox/add`;
       fetch(url,{
         method:'POST',
         headers: {

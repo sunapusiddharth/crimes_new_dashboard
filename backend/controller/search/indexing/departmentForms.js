@@ -86,7 +86,7 @@ async function indexDepartmentForms(client, req, res) {
             "department_organization": random_department[0].organization
             // "department_forms":random_department.forms
           }
-          await fetch(`http://localhost:9200/form_files/_doc/${index}?pipeline=attachment`, {
+          await fetch(`http://${process.env.REACT_APP_API_HOST}:9200/form_files/_doc/${index}?pipeline=attachment`, {
             method: "PUT",
             body: JSON.stringify(put_body),
             headers: {
@@ -110,7 +110,7 @@ async function indexDepartmentForms(client, req, res) {
 
 
 async function createAttachmentMapping(client, req, res) {
-  const url = 'http://localhost:9200/_ingest/pipeline/attachment'
+  const url = `http://${process.env.REACT_APP_API_HOST}:9200/_ingest/pipeline/attachment`
   const req_body = {
     "description": "Extract attachment information",
     "processors": [
@@ -149,7 +149,7 @@ async function searchDepartmentForms(client, req, res) {
       "size":size
     }
   }
-  const url = 'http://localhost:9200/form_files/_search'
+  const url = `http://${process.env.REACT_APP_API_HOST}:9200/form_files/_search`
   fetch(url, {
     method: "POST",
     body: JSON.stringify(body),

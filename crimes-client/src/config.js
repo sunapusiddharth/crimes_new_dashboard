@@ -1,3 +1,3 @@
 export default {
-    apiUrl:'http://localhost:8004/api'
+    apiUrl:`http://${process.env.BACKEND_HOST}:8004/backend/api`
 }

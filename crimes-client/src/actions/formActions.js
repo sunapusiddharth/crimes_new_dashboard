@@ -105,7 +105,7 @@ export function saveCrimeDataToServer(page_number) {
         }
 
         data.append("data", json);
-        let url = `http://localhost:8004/backend/api/crimes/add`;
+        let url = `http://${process.env.REACT_APP_API_HOST}:8004/api/crimes/add`;
         fetch(url, {
             method: 'POST',
             body: data,
@@ -137,7 +137,7 @@ export function saveDepartmentBlogToServer(form_values) {
            
         // }
         data.append("data", json);
-        let url = `http://localhost:8004/backend/api/forms/department_blogs/add_new_blog`;
+        let url = `http://${process.env.REACT_APP_API_HOST}:8004/api/forms/department_blogs/add_new_blog`;
         fetch(url, {
             method: 'POST',
             body: data,

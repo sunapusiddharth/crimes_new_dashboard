@@ -26,7 +26,7 @@ export function fetchDashboardTable(filters) {
   console.log("from action file=", filters)
   return dispatch => {
     dispatch(requestDashboardTable());
-    let url = 'http://localhost:8004/backend/api/crime/dashboard_table';
+    let url = `http://${process.env.REACT_APP_API_HOST}:8004/api/crime/dashboard_table`
     fetch(url, {
       method: 'POST',
       headers: {
@@ -65,7 +65,7 @@ export function getIncidentTableData(row) {
   console.log("offense_code=", offense_code)
   return dispatch => {
     dispatch(requestIncidentsTable())
-    let url = `http://localhost:8004/backend/api/crime/dashboard_incident_table`;
+    let url = `http://${process.env.REACT_APP_API_HOST}:8004/api/crime/dashboard_incident_table`;
     fetch(url, {
       method: 'POST',
       headers: {
@@ -114,7 +114,7 @@ export function fetchIncidentData(incident_number) {
     console.log("incident_number", incident_number)
     // debugger;
     dispatch(requestIncidentData())
-    let url = `http://localhost:8004/backend/api/incident/${incident_number}`;
+    let url = `http://${process.env.REACT_APP_API_HOST}:8004/api/incident/${incident_number}`;
     fetch(url, {
       method: 'GET',
       headers: {
@@ -140,7 +140,7 @@ export function fetchIncidentData(incident_number) {
 
 async function getIncidentPeopleData(people_ids) {
   // console.log("people_ids=",people_ids)
-  let people_data_url = 'http://localhost:8004/backend/api/incident/people'
+  let people_data_url = `http://${process.env.REACT_APP_API_HOST}:8004/api/incident/people`
   return await Promise.all(people_ids.map(people_id => {
     if (typeof people_id !== 'undefined') {
       if (people_id.length) {
@@ -173,7 +173,7 @@ const saveRecentVictims = (data) => ({
 export function fetchRecentVictims() {
   return dispatch => {
     dispatch(requestRecentVictims())
-    let url = `http://localhost:8004/backend/api/people/recent/victim/3`;
+    let url = `http://${process.env.REACT_APP_API_HOST}:8004/api/people/recent/victim/3`;
     fetch(url, {
       method: 'GET',
       headers: {
@@ -201,7 +201,7 @@ const saveCreateVictim = (data) => ({
 export function fetchCreateVictim() {
   return dispatch => {
     dispatch(requestCreateVictim())
-    let url = `http://localhost:8004/backend/api/people/add_person/victim`;
+    let url = `http://${process.env.REACT_APP_API_HOST}:8004/api/people/add_person/victim`;
     fetch(url, {
       method: 'GET',
       headers: {

@@ -70,7 +70,7 @@ class DepartmentSearchBox extends Component {
     }
 
     getInfo = (query) => {
-        fetch('http://localhost:8004/api/search/departments/autocomplete', {
+        fetch(`http://${process.env.REACT_APP_API_HOST}:8004/api/search/departments/autocomplete`, {
             method: 'post',
             headers: {
                 "Content-type": 'application/json'
@@ -92,7 +92,7 @@ class DepartmentSearchBox extends Component {
 
     getPersonAutocomplete = (query) => {
         //to use autoCompletePeople fn in backedn micro service.
-        fetch('http://localhost:8004/api/search/autocomplete/people', {
+        fetch(`http://${process.env.REACT_APP_API_HOST}:8004/api/search/autocomplete/people`, {
             method: 'post',
             headers: {
                 "Content-type": 'application/json'

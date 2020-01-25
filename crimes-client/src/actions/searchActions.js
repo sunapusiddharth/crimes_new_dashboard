@@ -75,7 +75,7 @@ export function fetchNewCombinedData(query, filters, from, size) {
 
     try {
       let promises = [
-        fetch('http://localhost:8004/backend/api/search/crimes', {
+        fetch(`http://${process.env.REACT_APP_API_HOST}:8004/api/search/crimes`, {
           method: "POST",
           body: crime_body,
           headers: {
@@ -84,7 +84,7 @@ export function fetchNewCombinedData(query, filters, from, size) {
           }
         }).then(res => res.json()).then(data => data).catch(error => console.log("error in crimes", error)),
 
-        // fetch('http://localhost:8004/backend/api/search/forms/search', {
+        // fetch('http://${process.env.REACT_APP_API_HOST}:8004/api/search/forms/search', {
         //   method: "POST",
         //   body: forms_body,
         //   headers: {
@@ -93,7 +93,7 @@ export function fetchNewCombinedData(query, filters, from, size) {
         //   }
         // }).then(res => res.json()).then(data => data).catch(error => console.log("error in department forms", error)),
 
-        fetch('http://localhost:8004/backend/api/search/people', {
+        fetch(`http://${process.env.REACT_APP_API_HOST}:8004/api/search/people`, {
           method: "POST",
           body: body,
           headers: {
@@ -102,7 +102,7 @@ export function fetchNewCombinedData(query, filters, from, size) {
           }
         }).then(res => res.json()).then(data => data).catch(error => console.log("error in people", error)),
         //Posts
-        fetch('http://localhost:8004/backend/api/search/department_details/find/post', {
+        fetch(`http://${process.env.REACT_APP_API_HOST}:8004/api/search/department_details/find/post`, {
           method: "POST",
           body,
           headers: {
@@ -111,7 +111,7 @@ export function fetchNewCombinedData(query, filters, from, size) {
           }
         }).then(res => res.json()).then(data => data).catch(error => console.log("error in posts", error)),
         // Speches:
-        fetch('http://localhost:8004/backend/api/search/department_details/find/speeches', {
+        fetch(`http://${process.env.REACT_APP_API_HOST}:8004/api/search/department_details/find/speeches`, {
           method: "POST",
           body,
           headers: {
@@ -121,7 +121,7 @@ export function fetchNewCombinedData(query, filters, from, size) {
         }).then(res => res.json()).then(data => data).catch(error => console.log("error in speeches", error)),
         // Vacancies:
         
-        fetch('http://localhost:8004/backend/api/search/department_details/find/vacancies', {
+        fetch(`http://${process.env.REACT_APP_API_HOST}:8004/api/search/department_details/find/vacancies`, {
           method: "POST",
           body,
           headers: {
@@ -171,7 +171,7 @@ const savePeople = (data) => ({
 export function searchPeople(query, filters, from, size) {
   return dispatch => {
     dispatch(requestPeople());
-    let url = `http://localhost:8004/backend/api/search/people`
+    let url = `http://${process.env.REACT_APP_API_HOST}:8004/api/search/people`
     let body = JSON.stringify({
       search_query: query,
       from: from,
@@ -219,7 +219,7 @@ export function searchAutoCompletePeople(query, filters, concat_results, from, s
   return dispatch => {
     dispatch(requestAutoCompletePeople());
     // if(!concat_results) {dispatch(clearAutocompleteResults())}
-    let url = `http://localhost:8004/backend/api/search/autocomplete/people`
+    let url = `http://${process.env.REACT_APP_API_HOST}:8004/api/search/autocomplete/people`
     let body = JSON.stringify({
       search_query: query,
       from: from,
@@ -258,7 +258,7 @@ const saveWordCloud = (data) => ({
 export function fetchWordCloud(query, filters) {
   return dispatch => {
     dispatch(requestWordCloud());
-    let url = `http://localhost:8004/backend/api/search/word_cloud/crimes`;
+    let url = `http://${process.env.REACT_APP_API_HOST}:8004/api/search/word_cloud/crimes`;
     fetch(url, {
       method: 'POST',
       headers: {
@@ -295,7 +295,7 @@ export function searchDepartmentAttachments(search_query, department_id, from, s
       "size": size
     }
     console.log("called here forms", search_query, department_id)
-    let url = `http://localhost:8004/backend/api/search/forms/search`;
+    let url = `http://${process.env.REACT_APP_API_HOST}:8004/api/search/forms/search`;
     fetch(url, {
       method: "POST",
       body: JSON.stringify(body),
@@ -328,7 +328,7 @@ const saveCrimes = (data,skip) => ({
 export function searchCrimes(query, filters, from, size) {
   return dispatch => {
     dispatch(requestCrimes());
-    let url = `http://localhost:8004/backend/api/search/crimes`
+    let url = `http://${process.env.REACT_APP_API_HOST}:8004/api/search/crimes`
     let body = JSON.stringify({
       search_query: query,
       filters,
@@ -369,7 +369,7 @@ export function searchPosts(query, filters, from, size) {
 
   return dispatch => {
     dispatch(requestPosts());
-    let url = `http://localhost:8004/backend/api/search/department_details/find/post`
+    let url = `http://${process.env.REACT_APP_API_HOST}:8004/api/search/department_details/find/post`
     let body = JSON.stringify({
       search_query: query,
       from: from,
@@ -417,7 +417,7 @@ export function searchAutoCompletePosts(query, filters, concat_results, from, si
   return dispatch => {
     dispatch(requestAutoCompletePosts());
     // if(!concat_results) {dispatch(clearAutocompleteResults())}
-    let url = `http://localhost:8004/backend/api/search/department_details/autocomplete/post`
+    let url = `http://${process.env.REACT_APP_API_HOST}:8004/api/search/department_details/autocomplete/post`
     let body = JSON.stringify({
       search_query: query,
       from: from,
@@ -455,7 +455,7 @@ export const saveBookmarkPosts = (data) => ({
 export function fetchBookmarkedPosts(user_id) {
   return dispatch => {
     dispatch(requestBookmarkPosts());
-    let url = `http://localhost:8004/backend/api/user/department/bookmarked_posts/${user_id}`
+    let url = `http://${process.env.REACT_APP_API_HOST}:8004/api/user/department/bookmarked_posts/${user_id}`
     fetch(url, {
       method: "GET",
       headers: {
@@ -483,7 +483,7 @@ export function fetchAddBookmarkedPosts(user_id, post_id) {
   //will save in redux and in backend as well
   return dispatch => {
     dispatch(requestAddBookmarkPosts());
-    let url = `http://localhost:8004/backend/api/user/department/add_bookmarked_posts/${user_id}/${post_id}`
+    let url = `http://${process.env.REACT_APP_API_HOST}:8004/api/user/department/add_bookmarked_posts/${user_id}/${post_id}`
     fetch(url, {
       method: "GET",
       headers: {
@@ -514,7 +514,7 @@ export function searchSpeeches(query, filters, from, size) {
 
   return dispatch => {
     dispatch(requestSpeeches());
-    let url = `http://localhost:8004/backend/api/search/department_details/find/speeches`
+    let url = `http://${process.env.REACT_APP_API_HOST}:8004/api/search/department_details/find/speeches`
     let body = JSON.stringify({
       search_query: query,
       from: from,
@@ -562,7 +562,7 @@ export function searchAutoCompleteSpeeches(query, filters, concat_results, from,
   return dispatch => {
     dispatch(requestAutoCompleteSpeeches());
     // if(!concat_results) {dispatch(clearAutocompleteResults())}
-    let url = `http://localhost:8004/backend/api/search/department_details/autocomplete/speeches`
+    let url = `http://${process.env.REACT_APP_API_HOST}:8004/api/search/department_details/autocomplete/speeches`
     let body = JSON.stringify({
       search_query: query,
       from: from,
@@ -606,7 +606,7 @@ export function searchVacancies(query, filters, from, size) {
 
   return dispatch => {
     dispatch(requestVacancies());
-    let url = `http://localhost:8004/backend/api/search/department_details/find/vacancies`
+    let url = `http://${process.env.REACT_APP_API_HOST}:8004/api/search/department_details/find/vacancies`
     let body = JSON.stringify({
       search_query: query,
       from: from,

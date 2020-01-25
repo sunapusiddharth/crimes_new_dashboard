@@ -8,7 +8,7 @@ var {from,size,search_query,filters} = req.body
 // console.log("req body=",req.body)
   body=  crime_search_json.crimesQuery(search_query,filters,from,size)
   console.log("req body=",JSON.stringify(body))
-   fetch('http://localhost:9200/crimes/_search',{
+   fetch(`http://${process.env.REACT_APP_API_HOST}:9200/crimes/_search`,{
     method:"POST",
     body:JSON.stringify(body),
     headers:{

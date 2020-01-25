@@ -7,7 +7,7 @@ const people = require('../model/people')
 //redis setup used for caching department data which egts data from external linsk ;
 const redis = require('redis');
 
-const client = redis.createClient();
+const client = redis.createClient(6379, 'redis')
 
 client.on('error', (err) => {
     console.log("Error " + err);

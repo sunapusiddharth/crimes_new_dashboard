@@ -43,7 +43,7 @@ export function fetchDepartmentFilters(filters) {
         dispatch(requestDepartmentFilters());
         //fire the initial query to get data from elastcisearch for filters :
 
-        let url = 'http://localhost:8004/backend/api/search/departments/aggs';
+        let url = `http://${process.env.REACT_APP_API_HOST}:8004/api/search/departments/aggs`
         fetch(url, {
             headers: {
                 "Access-Control-Allow-Origin": true
@@ -176,7 +176,7 @@ export function searchDepartments(query,from,size,clear_results) {
                aggs
             }
           }
-        let url = 'http://localhost:8004/backend/api/search/departments';
+        let url = `http://${process.env.REACT_APP_API_HOST}:8004/api/search/departments`
         fetch(url, {
             method:'post',
             body:JSON.stringify(body),
@@ -205,7 +205,7 @@ const saveDepartment = (data) => ({
 export function fetchDepartmentDetails(department_id) {
     return (dispatch) => {
         dispatch(loadDepartment());
-        let url = `http://localhost:8004/backend/api/forms/department/${department_id}`;
+        let url = `http://${process.env.REACT_APP_API_HOST}:8004/api/forms/department/${department_id}`;
         fetch(url)
             .then(response => response.json())
             .then(data => {
@@ -229,7 +229,7 @@ const saveDepartmentWithoutDetails = (data) => ({
 export function fetchDepartmentWithoutDetails(department_id) {
     return (dispatch) => {
         dispatch(loadDepartmentWithoutDetails());
-        let url = `http://localhost:8004/backend/api/forms/department/without_related_info/${department_id}`;
+        let url = `http://${process.env.REACT_APP_API_HOST}:8004/api/forms/department/without_related_info/${department_id}`;
         fetch(url)
             .then(response => response.json())
             .then(data => {
@@ -255,7 +255,7 @@ const saveAllPosts = (data) => ({
 export function getAllPosts(page_number) {
     return (dispatch) => {
         dispatch(loadAllPosts());
-        let url = `http://localhost:8004/backend/api/forms/posts/${page_number}`;
+        let url = `http://${process.env.REACT_APP_API_HOST}:8004/api/forms/posts/${page_number}`;
         fetch(url)
             .then(response => response.json())
             .then(data => {
@@ -279,7 +279,7 @@ const saveAllDepartments = (data) => ({
 export function fetchAllDepartments(skip, limit) {
     return (dispatch) => {
         dispatch(loadAllDepartments());
-        let url = `http://localhost:8004/backend/api/forms/departments`;
+        let url = `http://${process.env.REACT_APP_API_HOST}:8004/api/forms/departments`;
         fetch(url,{
             method: 'POST',
             body: JSON.stringify({
@@ -312,7 +312,7 @@ const saveIndividualPosts = (data) => ({
 export function getIndividualPosts(post_id) {
     return (dispatch) => {
         dispatch(loadIndividualPosts());
-        let url = `http://localhost:8004/backend/api/forms/post/${post_id}`;
+        let url = `http://${process.env.REACT_APP_API_HOST}:8004/api/forms/post/${post_id}`;
         fetch(url)
             .then(response => response.json())
             .then(data => {
@@ -360,7 +360,7 @@ const saveAllSpeeches = (data) => ({
 export function getAllSpeeches(page_number) {
     return (dispatch) => {
         dispatch(loadAllSpeeches());
-        let url = `http://localhost:8004/backend/api/forms/posts_speeches/${page_number}`;
+        let url = `http://${process.env.REACT_APP_API_HOST}:8004/api/forms/posts_speeches/${page_number}`;
         fetch(url)
             .then(response => response.json())
             .then(data => {
@@ -383,7 +383,7 @@ const saveIndividualSpeech = (data) => ({
 export function getIndividualSpeech(speech_id) {
     return (dispatch) => {
         dispatch(loadIndividualSpeech());
-        let url = `http://localhost:8004/backend/api/forms//speeches/${speech_id}`;
+        let url = `http://${process.env.REACT_APP_API_HOST}:8004/api/forms//speeches/${speech_id}`;
         fetch(url)
             .then(response => response.json())
             .then(data => {
@@ -407,7 +407,7 @@ const saveAllVacancies = (data) => ({
 export function getAllVacancies(page_number) {
     return (dispatch) => {
         dispatch(loadAllVacancies());
-        let url = `http://localhost:8004/backend/api/forms/department_vacancies/${page_number}`;
+        let url = `http://${process.env.REACT_APP_API_HOST}:8004/api/forms/department_vacancies/${page_number}`;
         fetch(url)
             .then(response => response.json())
             .then(data => {
@@ -430,7 +430,7 @@ const saveIndividualVacancy = (data) => ({
 export function getIndividualVacancy(vacancy_id) {
     return (dispatch) => {
         dispatch(loadIndividualVacancy());
-        let url = `http://localhost:8004/backend/api/forms/department_vacancy/${vacancy_id}`;
+        let url = `http://${process.env.REACT_APP_API_HOST}:8004/api/forms/department_vacancy/${vacancy_id}`;
         fetch(url)
             .then(response => response.json())
             .then(data => {
@@ -448,7 +448,7 @@ const saveLikesCount = (data) => ({
 export function incrementDepartmentLikes(department_post_id){
     //this shoould increment and server will return the likes count
     return (dispatch)=>{
-        let url = `http://localhost:8004/backend/api/forms/department_vacancy/${department_post_id}`;
+        let url = `http://${process.env.REACT_APP_API_HOST}:8004/api/forms/department_vacancy/${department_post_id}`;
         fetch(url)
             .then(response => response.json())
             .then(data => {
@@ -468,7 +468,7 @@ export function addBlogComment(comment,parent_slug){
         const post = departmentReducer.post
         let author_id = '5d7631ae5450143c288ce02e'
         //Logic - backend wil return new comment . So in frontend take this new comment object and push it under the
-        let url = `http://localhost:8004/backend/api/forms/department_blogs/add_new_comments`;
+        let url = `http://${process.env.REACT_APP_API_HOST}:8004/api/forms/department_blogs/add_new_comments`;
         fetch(url,{
             method: 'POST',
             body: JSON.stringify({

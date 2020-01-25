@@ -19,7 +19,7 @@ const populateRelationships = require('./populateRelationships')
 const csv = require('fast-csv')
 var crime = require('../model/crimes');
 const fs = require('fs')
-const mailer_url = 'http://localhost:8006/api/'
+const mailer_url = `http://${process.env.REACT_APP_API_HOST}:8006/api/`
 const search_crimes_query = require('./search/searching/crime_query')
 
 router.use(bodyParser.urlencoded({
@@ -314,7 +314,7 @@ router.post('/nearby_crimes', (req, res) => {
         let body = search_crimes_query.crimeLocationQuery(lat,lon,skip,limit)
         // res.status(200).send(body)
         
-        fetch('http://localhost:9200/crimes/_search',{
+        fetch(`http://${process.env.REACT_APP_API_HOST}:9200/crimes/_search`,{
             method:"POST",
             body:JSON.stringify(body),
             headers:{

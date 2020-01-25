@@ -1,12 +1,26 @@
-var elasticsearch = require('elasticsearch');
-var client = new elasticsearch.Client({
-        hosts: [
-                'https://[username]:[password]@[server]:[port]/',
-                'https://[username]:[password]@[server]:[port]/'
-        ],
-        requestTimeout: Infinity
+//setup and test elasticsearch connection :
+var hosts = [
+        'elasticsearch'
+      ]
+      const elasticsearch = require('elasticsearch')
+//       const client = new elasticsearch.Client({
+//           hosts:         hosts, 
+//           log:          'error',
+//           keepAlive:    true,
+//           sniffOnStart: false,
+//         });
+const client = new elasticsearch.Client({
+        host: `${process.env.REACT_APP_API_HOST}:9200`,
+        log: 'error'
+      });
         
-});
+        client.ping({ requestTimeout: 30000 }, function(error) {
+          if (error) {
+              console.error('elasticsearch cluster is down!');
+          } else {
+              console.log('Everything is ok');
+          }
+        });
 var inputFile = require('./wa_cities.json');
 var bulkArr = [];
 

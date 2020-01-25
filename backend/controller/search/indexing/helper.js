@@ -86,7 +86,7 @@ const bulk_import_network_calls = (client, index, type, data) => {
         for (let i = 0; i < data.length; i++) {
             // console.log("data=",data[i].id)
             // process.exit(0);
-            let url = `http://localhost:9200/${index}/_doc/${data[i].id}`
+            let url = `http://${process.env.REACT_APP_API_HOST}:9200/${index}/_doc/${data[i].id}`
             let body = JSON.stringify(data[i].body)
             fetch(url,{
                 method:"POST",

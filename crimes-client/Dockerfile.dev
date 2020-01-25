@@ -6,7 +6,8 @@ COPY /package.json ./
 COPY /yarn.lock ./
 
 # RUN npm install -g yarn
-
+# RUN ["apt-get", "update"]
+# RUN ["apt-get", "install", "-y", "vim"]
 RUN yarn install --network-timeout 1000000 
 # Copy app source code
 COPY . .

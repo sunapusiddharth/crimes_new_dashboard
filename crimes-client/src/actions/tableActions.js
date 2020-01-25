@@ -27,7 +27,7 @@ export function fetchBostonCrimes(filtered_field, sort_field, rowLimit,page) {
             "skipPage": page
         }
 
-        let url = `http://localhost:8004/backend/api/tables/populate_tables_boston_crimes_data`;
+        let url = `http://${process.env.REACT_APP_API_HOST}:8004/api/tables/populate_tables_boston_crimes_data`;
         fetch(url, {
             method: 'POST',
             headers: {
@@ -65,7 +65,7 @@ export function fetchDenverCrimes(filtered_field, sort_field, rowLimit,page) {
             "skipPage": page
         }
 
-        let url = `http://localhost:8004/backend/api/tables/populate_tables_denver_crimes_data`;
+        let url = `http://${process.env.REACT_APP_API_HOST}:8004/api/tables/populate_tables_denver_crimes_data`;
         fetch(url, {
             method: 'POST',
             headers: {
@@ -105,7 +105,7 @@ export function fetchVancouverCrimes() {
         //     "skipPage": page
         // }
 
-        let url = `http://localhost:8004/backend/api/tables/vancouver_crimes`;
+        let url = `http://${process.env.REACT_APP_API_HOST}:8004/api/tables/vancouver_crimes`;
         fetch(url, {
             method: 'GET',
             headers: {

@@ -1,0 +1,36 @@
+{
+    "AWSEBDockerrunVersion":2,
+    "ContainerDefinitions":[
+        {
+            "name":"crimes-client",
+            "image":"sunpausiddharth/crimes-new-dashboard-crimes-client",
+            "hostname":"crimes-client",
+            "essential":"false"
+        },
+        {
+            "name":"backend",
+            "image":"sunpausiddharth/crimes-new-dashboard-backend",
+            "hostname":"backend",
+            "essential":"false"
+        },
+        {
+            "name":"crime_data_explorer",
+            "image":"sunpausiddharth/crimes-new-dashboard-crime_data_explorer",
+            "hostname":"crime_data_explorer",
+            "essential":"false"
+        },
+        {
+            "name":"nginx",
+            "image":"sunpausiddharth/crimes-new-dashboard-nginx",
+            "hostname":"nginx",
+            "essential":"true",
+            "portMappings":[
+                {
+                    "hostPort":80,
+                    "containerPort":80
+                }
+            ],
+            "inks":["cient","server"]
+        }
+    ]
+}

@@ -22,7 +22,7 @@ const saveCrimeAggregated = (data) => ({
 export function fetchCrimeAggregated() {
   return dispatch => {
     dispatch(loadCrimeAggregated());
-    let url = 'http://localhost:8004/backend/api/crime_news/crimes_aggregated';
+    let url = `http://${process.env.REACT_APP_API_HOST}:8004/api/crime_news/crimes_aggregated`
     fetch(url, {
       method: 'GET',
       headers: {
@@ -51,7 +51,7 @@ const loadCrimeNews = () => ({
   export function fetchCrimeNews(skip,limit) {
     return dispatch => {
       dispatch(loadCrimeNews());
-      let url = 'http://localhost:8004/backend/api/crime_news/crimes';
+      let url = `http://${process.env.REACT_APP_API_HOST}:8004/api/crime_news/crimes`
       fetch(url, {
         method: 'POST',
         headers: {
@@ -85,7 +85,7 @@ const loadSingleCrimeNews = () => ({
   export function fetchSingleCrimeNews(crime_id) {
     return dispatch => {
       dispatch(loadSingleCrimeNews());
-      let url = 'http://localhost:8004/backend/api/crime_news/crimes/'+crime_id;
+      let url = `http://${process.env.REACT_APP_API_HOST}:8004/api/crime_news/crimes/`+crime_id;
       fetch(url, {
         method: 'GET',
         headers: {
@@ -120,7 +120,7 @@ export function fetchCrimeNewsSearch(search_query,from,size,clear_results) {
   return dispatch => {
     if(clear_results) dispatch(clearCrimeNewsSearch())
     dispatch(loadCrimeNewsSearch())
-    let url = 'http://localhost:8004/backend/api/search/crime_news'
+    let url = `http://${process.env.REACT_APP_API_HOST}:8004/api/search/crime_news`
     fetch(url, {
       method: 'POST',
       headers: {

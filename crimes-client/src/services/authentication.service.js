@@ -18,8 +18,9 @@ function login(username, password) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password })
     };
+    console.log("JOKER=","env vars=",process.env)
 
-    return fetch(`${config.apiUrl}/users/authenticate`, requestOptions)
+    return fetch(`http://${process.env.REACT_APP_API_HOST}:8004/api/users/authenticate`, requestOptions)
         .then(handleResponse)
         .then(user => {
             // store user details and jwt token in local storage to keep user logged in between page refreshes
@@ -27,7 +28,9 @@ function login(username, password) {
             currentUserSubject.next(user);
 
             return user;
-        });
+        }).catch(error=>{
+            console.log("JOKER=",error,"env vars=",process.env)
+        })
 }
 
 function logout() {
