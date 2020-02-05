@@ -5,9 +5,9 @@ services:
             dockerfile: Dockerfile.dev # specify the directory of the Dockerfile
             context: ./crimes-client
         environment:
-            - REACT_APP_BACKEND_HOST=192.168.99.100:8004
-            - REACT_APP_API_HOST=192.168.99.100
-            - REACT_APP_ES_HOST=192.168.99.100:9200
+            - REACT_APP_BACKEND_HOST=localhost:8004
+            - REACT_APP_API_HOST=localhost
+            - REACT_APP_ES_HOST=localhost:9200
         # depends_on: 
             # - backend
             # - crime_data_explorer
@@ -20,9 +20,9 @@ services:
         ports:
             - 3050:80 #specify ports mapping
         environment:
-            - REACT_APP_BACKEND_HOST=192.168.99.100:8004
-            - REACT_APP_API_HOST=192.168.99.100
-            - REACT_APP_ES_HOST=192.168.99.100:9200
+            - REACT_APP_BACKEND_HOST=localhost:8004
+            - REACT_APP_API_HOST=localhost
+            - REACT_APP_ES_HOST=localhost:9200
         depends_on: 
             - crimes-client
             # - backend
@@ -42,7 +42,7 @@ services:
         environment:
             - REDIS_HOST=redis
             - MONGODB_HOST=database
-            - REACT_APP_API_HOST=192.168.99.100
+            - REACT_APP_API_HOST=localhost
             - MONGODB_PORT=27017
             - ES_HOST=elasticsearch
             - ES_PORT=9200
@@ -65,7 +65,7 @@ services:
             - MONGODB_HOST=database
             - MONGODB_PORT=27017
             - ES_HOST=elasticsearch
-            - REACT_APP_API_HOST=192.168.99.100
+            - REACT_APP_API_HOST=localhost
         links:  
             - "elasticsearch:elasticsearch"
     # database:
