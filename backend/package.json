@@ -33,7 +33,7 @@
     "fetch": "^1.1.0",
     "gettyimages-api": "^3.1.1",
     "isomorphic-fetch": "^2.2.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "jsonwebtoken": "^7.4.1",
     "lorem-ipsum": "^2.0.3",
     "moment": "^2.24.0",
